@@ -1,0 +1,16 @@
+.profile-container{
+    color: white;
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+}
+
+.profile-container h1{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.profile-container p{
+    font-weight: medium;
+    font-size: 15px;
+}
