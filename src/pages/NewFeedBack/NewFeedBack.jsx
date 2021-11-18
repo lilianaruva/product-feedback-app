@@ -92,13 +92,13 @@ const NewFeedBack = () => {
                                         className="button-gray"
                                         isLoading={props.isSubmitting}
                                     >
-                                        Submit
+                                        Cancel
                                     </button>
                                     <button
                                         className="button-purplelarge"
                                         isLoading={props.isSubmitting}
                                     >
-                                        Submit
+                                        Add Feedback
                                     </button>
                                 </div>
                             </Form>

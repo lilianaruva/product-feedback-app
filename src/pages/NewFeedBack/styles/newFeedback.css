@@ -79,6 +79,14 @@
     font-size: 14px;
 }
 
+.button-gray:hover{
+    background-color: #656EA3;
+}
+
+.button-purplelarge:hover{
+    background-color: #C75AF6;
+}
+
 .button-group {
     display: flex;
     justify-content: flex-end;
