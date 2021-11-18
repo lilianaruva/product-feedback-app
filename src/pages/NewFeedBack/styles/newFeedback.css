@@ -1,15 +1,65 @@
-.newFeedback {
+.newFeedback{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-content: center;
-    background-color: red;
-    /*background-color: #F7F8FD;*/
-
+    background-color: #F7F8FD;
     margin-top: 3rem;
 }
 
-.feedback-form p{
-    font-size: 35rem;
-    color: red;
+
+.feedback-form{
+    max-width: 540px;
+    height: 657px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    color: #3A4374;
+}
+
+.feedback-form h1{
+    font-weight: bold;
+    font-size: 24px;
+}
+
+
+.input-form:hover{
+    cursor: pointer;
+    background-color: #F7F8FD;
+    border: 1px solid #4661E6;
+    transition: 0.5s ease;
+}
+
+.form-control{
+    margin: 1rem auto;
+}
+
+.title-input{
+    font-weight: bold;
+}
+
+.button-gray{
+    height: 44px;
+    width: 93px;
+    background-color: #3A4374;
+    color: #F2F4FE;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 10px;
+    margin-right: 0.5rem;
+}
+
+.button-purplelarge{
+    height: 44px;
+    width: 144px;
+    background-color: #AD1FEA;
+    border-radius: 10px;
+    color: #F2F4FE;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.button-group{
+    display: flex;
+    justify-content: flex-end;
 }
