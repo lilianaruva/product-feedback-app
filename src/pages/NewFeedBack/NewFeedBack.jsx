@@ -69,7 +69,7 @@ const NewFeedBack = () => {
                                     )}
                                 </Field>
                                 <FormControl id="country">
-                                    <FormLabel fontSize="14px" margin="0" fontWeight="bold" htmlFor="name">Feedback Detail</FormLabel>
+                                    <FormLabel fontSize="14px" margin="0" fontWeight="bold" htmlFor="name">Category</FormLabel>
                                     <FormLabel fontSize="14px" htmlFor="name" color="#647196">Choose a category for your feedback</FormLabel>
                                     <Select width="458px" backgroundColor="#F7F8FD">
                                         <option>Feature</option>

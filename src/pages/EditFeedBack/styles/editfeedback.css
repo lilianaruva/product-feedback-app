@@ -1,0 +1,149 @@
+.newFeedback {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    background-color: #F7F8FD;
+    margin-top: 2.5rem;
+}
+
+.circle-icon {
+    position: absolute;
+    left: 35%;
+    top: 6%;
+    z-index: 2;
+}
+
+.goBack {
+    margin-bottom: 3rem;
+    color: #647196;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.goBack a:hover {
+    text-decoration: underline #647196;
+    cursor: pointer;
+}
+
+.feedback-form {
+    max-width: 540px;
+    max-height: 657px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    color: #3A4374;
+    margin-bottom: 3rem;
+}
+
+.feedback-form h1 {
+    margin-top: 1.5rem;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+
+.input-form:hover {
+    cursor: pointer;
+    background-color: #F7F8FD;
+    border: 1px solid #4661E6;
+    transition: 0.5s ease;
+}
+
+.form-control {
+    margin: 1rem auto;
+}
+
+.title-input {
+    font-weight: bold;
+}
+
+.button-gray {
+    height: 44px;
+    width: 93px;
+    background-color: #3A4374;
+    color: #F2F4FE;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 10px;
+    margin-right: 0.5rem;
+}
+
+.button-purplelarge {
+    height: 44px;
+    width: 144px;
+    background-color: #AD1FEA;
+    border-radius: 10px;
+    color: #F2F4FE;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.button-gray:hover{
+    background-color: #656EA3;
+}
+
+.button-purplelarge:hover{
+    background-color: #C75AF6;
+}
+
+.button-cancel{
+    height: 44px;
+    width: 93px;
+    background-color: #D73737;
+    border-radius: 10px;
+    color: #F2F4FE;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.button-cancel:hover{
+    background-color: #E98888;
+
+}
+
+.button-group {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.button-left{
+    flex-grow: 3;
+}
+
+@media screen and (min-width:768px) {
+    .circle-icon {
+        position: absolute;
+        left: 20%;
+        top: 6%;
+        z-index: 2;
+    }
+}
+
+@media screen and (min-width:1024px) {
+    .circle-icon {
+        position: absolute;
+        left: 30%;
+        top: 6%;
+        z-index: 2;
+    }
+}
+
+@media screen and (min-width:1200px) {
+    .circle-icon {
+        position: absolute;
+        left: 35%;
+        top: 6%;
+        z-index: 2;
+    }
+}
+
+@media screen and (min-width:2000px) {
+    .circle-icon {
+        position: absolute;
+        left: 38%;
+        top: 6%;
+        z-index: 2;
+    }
+}
