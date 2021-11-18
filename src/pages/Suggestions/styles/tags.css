@@ -1,0 +1,27 @@
+.tags-container{
+    background-color: white;
+    border-radius: 10px;
+    width: 255px;
+    height: 166px;
+    padding: 1rem;
+    margin: 1.5rem 0;
+}
+
+.tag{
+    cursor: pointer;
+    background-color: #F2F4FF;
+    color: #4661E6;
+    margin-bottom: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.tag:active{
+    background-color: #4661E6;
+    color: white;
+}
+
+.tag:hover{
+    transition: background 0.5s ease;
+    background-color: #CFD7FF;
+    color: #4661E6;
+}

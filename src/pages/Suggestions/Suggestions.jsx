@@ -1,11 +1,15 @@
 import React from "react";
 import Profile from "./components/profile";
+import Tags from "./components/tags";
+import './styles/suggestion.css';
 
-
-const Suggestion = () =>{
-    return(
+const Suggestion = () => {
+    return (
         <>
-        <Profile/>
+            <div className="suggest">
+                <Profile />
+                <Tags />
+            </div>
         </>
     )
 }

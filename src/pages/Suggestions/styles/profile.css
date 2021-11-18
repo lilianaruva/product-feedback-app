@@ -1,16 +1,22 @@
-.profile-container{
+.profile-container {
     color: white;
-    position: absolute;
-    bottom: 1rem;
-    left: 1rem;
+    width: 100%;
+    height: 100%;
+    padding-left: 1rem;
+    padding-top: 4rem;
 }
 
-.profile-container h1{
+.profile-container h1 {
     font-weight: bold;
     font-size: 20px;
 }
 
-.profile-container p{
+.profile-container p {
     font-weight: medium;
     font-size: 15px;
+}
+
+.profile-content {
+    position: absolute;
+    bottom: 10px;
 }

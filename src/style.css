@@ -1,47 +1,50 @@
-*{
+* {
     font-family: 'Jost', sans-serif;
 }
 
-.body1{
+html, body{
+    background-color: #F7F8FD;
+}
+
+.body1 {
     font-size: 16px;
     line-height: 23px;
 }
 
-.body2{
+.body2 {
     font-size: 15px;
     line-height: 22px;
 }
 
-.body3{
+.body3 {
     font-size: 13px;
     line-height: 19px;
 }
 
-h1{
+h1 {
     font-weight: bold;
     font-size: 24px;
     word-spacing: -0.33;
     line-height: 35px;
 }
 
-h2{
+h2 {
     font-weight: bold;
     font-size: 20px;
     word-spacing: -0.25;
     line-height: 29px;
 }
 
-h3{
+h3 {
     font-weight: bold;
     font-size: 18px;
     word-spacing: -0.25;
     line-height: 26px;
 }
 
-h4{
+h4 {
     font-weight: bold;
     font-size: 14px;
     word-spacing: -0.2;
     line-height: 20px;
 }
-
