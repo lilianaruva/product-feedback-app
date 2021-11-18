@@ -10,7 +10,7 @@
 
 .circle-icon {
     position: absolute;
-    left: 27%;
+    left: 35%;
     top: 6%;
     z-index: 2;
 }
@@ -82,4 +82,40 @@
 .button-group {
     display: flex;
     justify-content: flex-end;
+}
+
+@media screen and (min-width:768px) {
+    .circle-icon {
+        position: absolute;
+        left: 20%;
+        top: 6%;
+        z-index: 2;
+    }
+}
+
+@media screen and (min-width:1024px) {
+    .circle-icon {
+        position: absolute;
+        left: 30%;
+        top: 6%;
+        z-index: 2;
+    }
+}
+
+@media screen and (min-width:1200px) {
+    .circle-icon {
+        position: absolute;
+        left: 35%;
+        top: 6%;
+        z-index: 2;
+    }
+}
+
+@media screen and (min-width:2000px) {
+    .circle-icon {
+        position: absolute;
+        left: 38%;
+        top: 6%;
+        z-index: 2;
+    }
 }
