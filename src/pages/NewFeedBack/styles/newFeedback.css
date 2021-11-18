@@ -1,26 +1,33 @@
-.newFeedback{
+.newFeedback {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
     align-content: center;
     background-color: #F7F8FD;
-    margin-top: 3rem;
+    margin-top: 2.5rem;
 }
 
-.goBack{
-     margin-bottom: 1rem;
-     color: #647196;
-     font-weight: bold;
-     font-size: 14px;
+.circle-icon {
+    position: absolute;
+    left: 27%;
+    top: 6%;
+    z-index: 2;
 }
 
-.goBack a:hover{
+.goBack {
+    margin-bottom: 3rem;
+    color: #647196;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.goBack a:hover {
     text-decoration: underline #647196;
     cursor: pointer;
 }
 
-.feedback-form{
+.feedback-form {
     max-width: 540px;
     height: 657px;
     background-color: white;
@@ -29,28 +36,29 @@
     color: #3A4374;
 }
 
-.feedback-form h1{
+.feedback-form h1 {
+    margin-top: 1.5rem;
     font-weight: bold;
     font-size: 24px;
 }
 
 
-.input-form:hover{
+.input-form:hover {
     cursor: pointer;
     background-color: #F7F8FD;
     border: 1px solid #4661E6;
     transition: 0.5s ease;
 }
 
-.form-control{
+.form-control {
     margin: 1rem auto;
 }
 
-.title-input{
+.title-input {
     font-weight: bold;
 }
 
-.button-gray{
+.button-gray {
     height: 44px;
     width: 93px;
     background-color: #3A4374;
@@ -61,7 +69,7 @@
     margin-right: 0.5rem;
 }
 
-.button-purplelarge{
+.button-purplelarge {
     height: 44px;
     width: 144px;
     background-color: #AD1FEA;
@@ -71,7 +79,7 @@
     font-size: 14px;
 }
 
-.button-group{
+.button-group {
     display: flex;
     justify-content: flex-end;
 }
