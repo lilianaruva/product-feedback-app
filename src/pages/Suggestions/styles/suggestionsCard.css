@@ -36,6 +36,11 @@
     align-self: flex-end;
 }
 
+.sC-number:hover {
+    cursor: pointer;
+    background-color: #CFD7FF;
+}
+
 .sC-content {
     margin-left: 2rem;
     flex-grow: 3;
@@ -43,6 +48,14 @@
 
 .sC-content p{
     margin-bottom: 0.5rem;
+}
+
+.sC-content h1:hover{
+    color: #4661E6;
+}
+
+.sC-content:hover{
+    cursor: pointer;
 }
 
 .sC-comments {
