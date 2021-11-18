@@ -1,6 +1,6 @@
 import React from "react";
-import { List, ListItem, ListIcon } from "@chakra-ui/react";
-import { Icon, createIcon } from "@chakra-ui/react"
+import { List, ListItem} from "@chakra-ui/react";
+import { Icon } from "@chakra-ui/react"
 import '../styles/roadmap.css';
 
 const Roadmap = () => {
