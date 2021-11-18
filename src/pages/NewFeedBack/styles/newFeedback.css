@@ -1,0 +1,15 @@
+.newFeedback {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    background-color: red;
+    /*background-color: #F7F8FD;*/
+
+    margin-top: 3rem;
+}
+
+.feedback-form p{
+    font-size: 35rem;
+    color: red;
+}
