@@ -4,6 +4,7 @@ import './style.css';
 import Suggestion from './pages/Suggestions/Suggestions';
 import NewFeedBack from './pages/NewFeedBack/NewFeedBack';
 import EditFeedBack from './pages/EditFeedBack/EditFeedBack';
+import Roadmap from './pages/Roadmap/Roadmap';
 
 function App() {
   return (
@@ -11,7 +12,8 @@ function App() {
     <ChakraProvider>
       
       
-      <EditFeedBack/>
+      
+      <Roadmap/>
     </ChakraProvider>
     </>
   );

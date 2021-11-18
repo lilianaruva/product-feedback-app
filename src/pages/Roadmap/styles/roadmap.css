@@ -1,0 +1,9 @@
+.roadmap{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    background-color: #F7F8FD;
+    margin-top: 2.5rem;
+}
