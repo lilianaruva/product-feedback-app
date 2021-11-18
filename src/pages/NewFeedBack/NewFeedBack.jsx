@@ -1,6 +1,7 @@
 import React from "react";
 import { Formik, Form, Field } from "formik";
 import { FormControl, FormLabel, FormErrorMessage, Input, Select, Textarea, Button } from "@chakra-ui/react";
+import { ChevronLeftIcon } from "@chakra-ui/icons";
 import './styles/newFeedback.css';
 
 const NewFeedBack = () => {
@@ -18,11 +19,14 @@ const NewFeedBack = () => {
     return (
         <>
             <div className="newFeedback">
+                <div className="goBack">
+                    <ChevronLeftIcon color="#4661E6" />
+                    <a>Go Back</a>
+                </div>
                 <div className="feedback-form">
                     <h1>Create New Feedback</h1>
                     <br />
                     <Formik
-
                         onSubmit={(values, actions) => {
                             setTimeout(() => {
                                 alert(JSON.stringify(values, null, 2))

@@ -1,5 +1,6 @@
 .newFeedback{
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
     align-content: center;
@@ -7,6 +8,17 @@
     margin-top: 3rem;
 }
 
+.goBack{
+     margin-bottom: 1rem;
+     color: #647196;
+     font-weight: bold;
+     font-size: 14px;
+}
+
+.goBack a:hover{
+    text-decoration: underline #647196;
+    cursor: pointer;
+}
 
 .feedback-form{
     max-width: 540px;
