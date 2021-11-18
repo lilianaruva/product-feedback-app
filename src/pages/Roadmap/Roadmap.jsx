@@ -1,5 +1,7 @@
 import React from "react";
 import NavRoadmap from "./components/navRoadmap";
+import CardRoadmap from "./components/cardRoadmap";
+
 import './styles/roadmap.css';
 
 const Roadmap = () =>{
@@ -7,6 +9,7 @@ const Roadmap = () =>{
         <>
         <div className="roadmap">
             <NavRoadmap/>
+            <CardRoadmap/>
         </div>
         </>
     )

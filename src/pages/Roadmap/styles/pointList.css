@@ -1,0 +1,9 @@
+.point{
+    display: flex;
+    align-items: baseline;
+}
+
+.point p{
+    font-size: 16px;
+    margin-left: 1rem;
+}

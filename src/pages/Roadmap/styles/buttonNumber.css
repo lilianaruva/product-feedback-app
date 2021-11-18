@@ -1,0 +1,16 @@
+.button-number{
+    display: flex;
+    align-items: center;
+    width: 69px;
+    height: 40px;
+    background-color: #F2F4FE;
+    border-radius: 10px;
+    color: #3A4374;
+    text-align: center;
+    font-weight: bold;
+}
+
+.button-number:hover{
+    cursor: pointer;
+    background-color: #CFD7FF;
+}
