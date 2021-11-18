@@ -10,11 +10,15 @@ const Suggestion = () => {
     return (
         <>
             <div className="suggest">
-                <Profile />
-                <Tags />
-                <Roadmap />
-                <SuggestionBar/>
-                <SuggestionsCard />
+                <div className="suggest-left">
+                    <Profile />
+                    <Tags />
+                    <Roadmap />
+                </div>
+                <div className="suggest-right">
+                    <SuggestionBar />
+                    <SuggestionsCard />
+                </div>
             </div>
         </>
     )

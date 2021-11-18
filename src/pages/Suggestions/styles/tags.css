@@ -25,3 +25,11 @@
     background-color: #CFD7FF;
     color: #4661E6;
 }
+
+@media screen and (max-width:1500px) {
+    .tags-container {
+        height: 178px;
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+    }
+}

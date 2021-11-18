@@ -20,3 +20,9 @@
     position: absolute;
     bottom: 10px;
 }
+
+@media screen and (max-width:1500px) {
+    .profile-container {
+        height: 178px;
+    }
+}

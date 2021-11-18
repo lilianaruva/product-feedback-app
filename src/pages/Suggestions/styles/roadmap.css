@@ -32,3 +32,9 @@
     cursor: pointer;
     text-decoration: underline;
 }
+
+@media screen and (max-width:1500px) {
+    .roadmap-container {
+        height: 178px;
+    }
+}

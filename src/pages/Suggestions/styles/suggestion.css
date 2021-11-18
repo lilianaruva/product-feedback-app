@@ -1,3 +1,32 @@
-.suggest{
+.suggest {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: center;
     background-color: #F7F8FD;
+    margin-top: 3rem;
+}
+
+.suggest-left {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+}
+
+.suggest-right {
+    margin-left: 2rem;
+}
+
+
+@media screen and (max-width:1500px) {
+    .suggest-left {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        align-content: center;
+        justify-content: space-between;
+    }
 }
