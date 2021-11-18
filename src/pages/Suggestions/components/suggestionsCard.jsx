@@ -1,7 +1,7 @@
 import React from "react";
 import '../styles/suggestionsCard.css'
 import { Tag } from "@chakra-ui/react";
-import {ChevronUpIcon, ChatIcon} from "@chakra-ui/icons";
+import { ChevronUpIcon, ChatIcon } from "@chakra-ui/icons";
 
 const SuggestionsCard = () => {
     return (
@@ -17,7 +17,7 @@ const SuggestionsCard = () => {
                     <Tag className="tag" backgroundColor="#F2F4FF" color="#4661E6" fontWeight="semiBold">Enhancement</Tag>
                 </div>
                 <div className="sC-comments">
-                    <ChatIcon color="#CDD2EE"/>
+                    <ChatIcon color="#CDD2EE" />
                     <h2>2</h2>
                 </div>
             </div>
