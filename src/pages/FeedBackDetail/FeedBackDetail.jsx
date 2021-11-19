@@ -1,5 +1,6 @@
 import React from "react";
 import SuggestionsCard from "../Suggestions/components/suggestionsCard";
+import AddComment from "./components/addComment";
 import { ChevronLeftIcon } from "@chakra-ui/icons";
 
 import './styles/feedbackDetails.css'
@@ -17,6 +18,7 @@ const FeedBackDetails = () => {
                         <button className="button-blue">Edit Feedback</button>
                     </div>
                     <SuggestionsCard styles={{maxWidth:"720px"}}/>
+                    <AddComment/>
                 </div>
             </div>
         </>

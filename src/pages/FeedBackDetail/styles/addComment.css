@@ -1,0 +1,17 @@
+.addComment-container{
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+}
+
+.addComment-bottom{
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.countCharacters {
+    color: #647196;
+    font-size: 15px;
+}
