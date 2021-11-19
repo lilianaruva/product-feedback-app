@@ -1,0 +1,16 @@
+.columncard-container {
+    display: flex;
+    flex-direction: column;
+    background-color: #F7F8FD;
+    margin-top: 2rem;
+    max-width: 350px;
+}
+
+.title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.subtitle {
+    font-size: 18px;
+}

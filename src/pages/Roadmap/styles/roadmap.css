@@ -1,4 +1,4 @@
-.roadmap{
+.roadmap {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -6,4 +6,14 @@
     align-content: center;
     background-color: #F7F8FD;
     margin-top: 2.5rem;
+}
+
+.roadmap-content {
+    width: 1110px;
+}
+
+.roadmap-columns {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
