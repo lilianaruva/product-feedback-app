@@ -1,0 +1,25 @@
+.comment-container-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width:730px;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.comment-container-base{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width:730px;
+    border-radius: 10px;
+    background-color: white;
+    padding: 1.5rem;
+    margin: 1rem 0;
+}
+
+.title{
+    margin-bottom: 1rem;
+    color: #3A4374;
+}
