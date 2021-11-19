@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import '../styles/suggestionBar.css'
 import { Menu, MenuButton, MenuList, MenuOptionGroup, MenuItemOption } from "@chakra-ui/react";
 import { ChevronUpIcon, ChevronDownIcon, CheckIcon, SmallAddIcon } from "@chakra-ui/icons";
@@ -28,12 +29,14 @@ const SuggestionsCard = () => {
                     <MenuList minWidth="255px">
                         <MenuOptionGroup defaultValue="most-upvote" type="radio">
                             <MenuItemOption color="#647196" className="sb-option" value="most-upvote">Most Upvotes</MenuItemOption>
-                            <hr/>  
+                            <hr />
                             <MenuItemOption color="#647196" className="sb-option" value="least-upvote">Least Upvotes</MenuItemOption>
                         </MenuOptionGroup>
                     </MenuList>
                 </Menu>
-                <button className="button-purple"><SmallAddIcon/>Add Feedback</button>
+                <Link to="/add-feedback">
+                    <button className="button-purple"><SmallAddIcon />Add Feedback</button>
+                </Link>
             </div>
         </>
     )
