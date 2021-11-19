@@ -1,0 +1,34 @@
+.feedback-details {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    background-color: #F7F8FD;
+    margin-top: 2.5rem;
+}
+
+.feedback-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.button-blue{
+    width: 142px;
+    height: 44px;
+    background-color: #4661E6;
+    color: #F2F4FE;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 10px;
+}
+
+.feedback-content{
+    max-width:730px;
+    justify-content: center;
+}
+
+.suggestionsCard-container{
+    max-width: 720px;
+}
