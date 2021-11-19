@@ -1,6 +1,5 @@
 import React from "react";
 import SuggestionsCard from "../Suggestions/components/suggestionsCard";
-import Comment from "./components/comment";
 import CommentContainer from "./components/commentContainer";
 import AddComment from "./components/addComment";
 import { ChevronLeftIcon } from "@chakra-ui/icons";
