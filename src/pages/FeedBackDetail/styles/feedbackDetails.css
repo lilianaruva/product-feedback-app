@@ -29,9 +29,6 @@
     justify-content: center;
 }
 
-.suggestionsCard-container{
-    max-width: 720px;
-}
 
 .button-blue:hover{
     background-color: #7C91F9;

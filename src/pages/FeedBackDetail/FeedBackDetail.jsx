@@ -3,6 +3,7 @@ import SuggestionsCard from "../Suggestions/components/suggestionsCard";
 import CommentContainer from "./components/commentContainer";
 import AddComment from "./components/addComment";
 import { ChevronLeftIcon } from "@chakra-ui/icons";
+import { Link } from "react-router-dom";
 
 import './styles/feedbackDetails.css'
 
@@ -14,12 +15,14 @@ const FeedBackDetails = () => {
                     <div className="feedback-top">
                         <div className="goBack">
                             <ChevronLeftIcon color="#4661E6" />
-                            <a>Go Back</a>
+                            <Link to="/">
+                                <a>Go Back</a>
+                            </Link>
                         </div>
                         <button className="button-blue">Edit Feedback</button>
                     </div>
-                    <SuggestionsCard styles={{ maxWidth: "720px" }} />
-                    <CommentContainer/>
+                    <SuggestionsCard />
+                    <CommentContainer />
                     <AddComment />
                 </div>
             </div>

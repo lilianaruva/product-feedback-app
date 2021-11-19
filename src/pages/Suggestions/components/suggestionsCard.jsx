@@ -1,9 +1,10 @@
 import React from "react";
 import '../styles/suggestionsCard.css'
 import { Tag } from "@chakra-ui/react";
-import { ChevronUpIcon} from "@chakra-ui/icons";
+import { ChevronUpIcon } from "@chakra-ui/icons";
+import { Link } from "react-router-dom";
 
-const SuggestionsCard = () => {
+const SuggestionsCard = ({ title, detail, category, vote }) => {
 
     const icon = () => (
         <svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -16,12 +17,14 @@ const SuggestionsCard = () => {
             <div className="suggestionsCard-container">
                 <div className="sC-number">
                     <ChevronUpIcon w={5} h={5} color="#4661E6" />
-                    <h2>112</h2>
+                    <h2>{vote}</h2>
                 </div>
                 <div className="sC-content">
-                    <h1>Add tags for solutions</h1>
-                    <p>Easier to search for solutions based on a specific stack.</p>
-                    <Tag className="tag" backgroundColor="#F2F4FF" color="#4661E6" fontWeight="semiBold">Enhancement</Tag>
+                    <Link to="feedback-detail">
+                        <h1>{title}</h1>
+                    </Link>
+                    <p>{detail}</p>
+                    <Tag className="tag" backgroundColor="#F2F4FF" color="#4661E6" fontWeight="semiBold">{category}</Tag>
                 </div>
                 <div className="sC-comments">
                     {icon()}
