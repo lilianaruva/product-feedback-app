@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Formik, Form, Field } from "formik";
-import { FormControl, FormLabel, FormErrorMessage, Input, Select, Textarea, Button } from "@chakra-ui/react";
+import { FormControl, FormLabel, FormErrorMessage, Input, Select, Textarea} from "@chakra-ui/react";
 import { ChevronLeftIcon } from "@chakra-ui/icons";
 import './styles/newFeedback.css';
 
@@ -25,9 +25,9 @@ const NewFeedBack = () => {
     function validateInputs(value) {
         let error
         if (!value) {
-            error = "Name is required"
-        } else if (value.toLowerCase() !== "naruto") {
-            error = "Jeez! You're not a fan 😱"
+            error = "Can't be empty"
+        } else if (value.toLowerCase() !== "a") {
+            error = "Error"
         }
         return error
     }

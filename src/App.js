@@ -6,6 +6,7 @@ import NewFeedBack from "./pages/NewFeedBack/NewFeedBack";
 import EditFeedBack from "./pages/EditFeedBack/EditFeedBack";
 import Roadmap from "./pages/Roadmap/Roadmap";
 import FeedBackDetails from "./pages/FeedBackDetail/FeedBackDetail";
+import Login from "./pages/Login/Login";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/edit-feedback" element={<EditFeedBack />} />
           <Route path="/roadmap" element={<Roadmap />} />
           <Route path="/feedback-detail" element={<FeedBackDetails />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </ChakraProvider>
     </>
