@@ -8,7 +8,6 @@ const AddComment = () =>{
         <>
         <div className="addComment-container">
             <h1 className="title">Add Comment</h1>
-            <br/>
             <Textarea backgroundColor="#F7F8FD" variant="filled" placeholder="Type your comment here" />
             <div className="addComment-bottom">
                 <p className="countCharacters">Characters left</p>
