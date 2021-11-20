@@ -110,6 +110,8 @@ const NewFeedBack = (props) => {
                                         <option>Feature</option>
                                         <option>UI</option>
                                         <option>UX</option>
+                                        <option>Enhancement</option>
+                                        <option>Bug</option>
                                     </Select>
                                 </FormControl>
                                         <FormControl className="form-control" >
