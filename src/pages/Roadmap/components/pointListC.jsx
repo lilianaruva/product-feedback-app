@@ -1,10 +1,10 @@
 import React from 'react';
 import '../styles/pointList.css';
 
-const PointListC = ({ title}) => {
+const PointListC = ({ title, color }) => {
 
     const icon = () => (
-        <svg viewBox="0 0 300 300" color="#F49F85" width="11px">
+        <svg viewBox="0 0 200 200" color={color} width="12px">
             <path
                 fill="currentColor"
                 d="M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0"

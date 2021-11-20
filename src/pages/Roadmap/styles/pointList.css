@@ -1,6 +1,6 @@
 .point{
     display: flex;
-    align-items: baseline;
+    align-items: center;
 }
 
 .point p{
