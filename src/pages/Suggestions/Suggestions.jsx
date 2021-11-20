@@ -27,9 +27,7 @@ const Suggestion = () => {
         }
     }
     const handleSortBar = (typeofSort) => {
-        if (typeofSort === "most-upvote") {
-
-
+        if (typeofSort === "Most Upvote") {
             const sortedArray = feedbacks.sort((a, b) => {
                 if (parseInt(a.vote) < parseInt(b.vote)) {
                     return 1;
@@ -43,7 +41,7 @@ const Suggestion = () => {
 
         }
 
-        if (typeofSort === "least-upvote") {
+        if (typeofSort === "Least Upvote") {
             const sortedArray = feedbacks.sort((a, b) => {
                 if (parseInt(a.vote) > parseInt(b.vote)) {
                     return 1;
@@ -57,7 +55,7 @@ const Suggestion = () => {
 
         }
 
-        if (typeofSort === "most-comments") {
+        if (typeofSort === "Most Comments") {
             const sortedArray = feedbacks.sort((a, b) => {
                 if (a.comment.length < b.comment.length) {
                     return 1;
@@ -70,7 +68,7 @@ const Suggestion = () => {
             setFeedbacks([...sortedArray]);
         }
 
-        if (typeofSort === "least-comments") {
+        if (typeofSort === "Least Comments") {
             const sortedArray = feedbacks.sort((a, b) => {
                 if (a.comment.length > b.comment.length) {
                     return 1;

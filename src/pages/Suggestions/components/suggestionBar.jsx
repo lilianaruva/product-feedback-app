@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import '../styles/suggestionBar.css'
 import { Menu, MenuButton, MenuList, MenuOptionGroup, MenuItemOption } from "@chakra-ui/react";
-import {  SmallAddIcon } from "@chakra-ui/icons";
+import { SmallAddIcon, ChevronDownIcon } from "@chakra-ui/icons";
 import data from "../../../data";
 
 
@@ -37,16 +37,16 @@ const SuggestionsCard = (props) => {
                     <h1 className="suggestion-title">{feedbacks.length} Suggestions</h1>
                 </div>
                 <Menu>
-                    <MenuButton>Sort by {currentSort}</MenuButton>
+                    <MenuButton>Sort by {currentSort}<ChevronDownIcon /></MenuButton>
                     <MenuList minWidth="255px">
-                        <MenuOptionGroup onChange={handleMenuSortChange} defaultValue="most-upvote" type="radio">
-                            <MenuItemOption color="#647196" className="sb-option" value="most-upvote">Most Upvotes</MenuItemOption>
+                        <MenuOptionGroup onChange={handleMenuSortChange} defaultValue="Most Upvote" type="radio">
+                            <MenuItemOption color="#647196" className="sb-option" value="Most Upvote">Most Upvotes</MenuItemOption>
                             <hr />
-                            <MenuItemOption color="#647196" className="sb-option" value="least-upvote">Least Upvotes</MenuItemOption>
+                            <MenuItemOption color="#647196" className="sb-option" value="Least Upvote">Least Upvotes</MenuItemOption>
                             <hr />
-                            <MenuItemOption color="#647196" className="sb-option" value="most-comments">Most Comments</MenuItemOption>
+                            <MenuItemOption color="#647196" className="sb-option" value="Most Comments">Most Comments</MenuItemOption>
                             <hr />
-                            <MenuItemOption color="#647196" className="sb-option" value="least-comments">Least Comments</MenuItemOption>
+                            <MenuItemOption color="#647196" className="sb-option" value="Least Comments">Least Comments</MenuItemOption>
                         </MenuOptionGroup>
                     </MenuList>
                 </Menu>
