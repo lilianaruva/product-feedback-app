@@ -1,6 +1,6 @@
 .suggestionBar-container{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     align-content: center;
     width: 825px;
@@ -9,14 +9,21 @@
     background-color: #373F68;
     color: white;
     margin-bottom: 1rem;
+    padding: 0 1.5rem;
 }
 
 .suggestionBar-container h1{
     font-weight: bold;
     font-size: 18px;
 }
-
-
+.suggestion-title{
+    margin-left: 1rem;
+}
+.suggestion-icon{
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
 
 .sb-option:hover{
     color: #AD1FEA;

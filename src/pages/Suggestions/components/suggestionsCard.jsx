@@ -4,7 +4,7 @@ import { Tag } from "@chakra-ui/react";
 import { ChevronUpIcon } from "@chakra-ui/icons";
 import { Link } from "react-router-dom";
 
-const SuggestionsCard = ({ title, detail, category, vote }) => {
+const SuggestionsCard = ({ title, detail, category, vote, comment }) => {
 
     const icon = () => (
         <svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -28,7 +28,7 @@ const SuggestionsCard = ({ title, detail, category, vote }) => {
                 </div>
                 <div className="sC-comments">
                     {icon()}
-                    <h2>2</h2>
+                    <h2>{comment}</h2>
                 </div>
             </div>
         </>

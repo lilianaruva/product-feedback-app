@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import '../styles/suggestionBar.css'
 import { Menu, MenuButton, MenuList, MenuOptionGroup, MenuItemOption } from "@chakra-ui/react";
-import { ChevronUpIcon, ChevronDownIcon, CheckIcon, SmallAddIcon } from "@chakra-ui/icons";
+import {  SmallAddIcon } from "@chakra-ui/icons";
+import data from "../../../data";
 
-const SuggestionsCard = () => {
+
+
+const SuggestionsCard = (props) => {
+    const [feedbacks, setFeedbacks] = useState(data);
+    const [currentSort, setCurrentSort] = useState("most-upvote");
 
     const icon = () => (
         <svg width="23" height="24" viewBox="0 0 23 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -18,23 +23,35 @@ const SuggestionsCard = () => {
             </defs>
         </svg>
     )
+    const handleMenuSortChange = (typefilter) => {
+        console.log(typefilter);
+        setCurrentSort(typefilter);
+        props.updatefilter(typefilter);
+    }
 
     return (
         <>
             <div className="suggestionBar-container">
-                {icon()}
-                <h1>6 Suggestions</h1>
+                <div className="suggestion-icon">
+                    {icon()}
+                    <h1 className="suggestion-title">{feedbacks.length} Suggestions</h1>
+                </div>
                 <Menu>
-                    <MenuButton>Sort by:</MenuButton>
+                    <MenuButton>Sort by {currentSort}</MenuButton>
                     <MenuList minWidth="255px">
-                        <MenuOptionGroup defaultValue="most-upvote" type="radio">
+                        <MenuOptionGroup onChange={handleMenuSortChange} defaultValue="most-upvote" type="radio">
                             <MenuItemOption color="#647196" className="sb-option" value="most-upvote">Most Upvotes</MenuItemOption>
                             <hr />
                             <MenuItemOption color="#647196" className="sb-option" value="least-upvote">Least Upvotes</MenuItemOption>
+                            <hr />
+                            <MenuItemOption color="#647196" className="sb-option" value="most-comments">Most Comments</MenuItemOption>
+                            <hr />
+                            <MenuItemOption color="#647196" className="sb-option" value="least-comments">Least Comments</MenuItemOption>
                         </MenuOptionGroup>
                     </MenuList>
                 </Menu>
-                <Link to="/add-feedback">
+                <Link to={{ pathname: '/add-feedback', state: { fromNotifications: true } }}>My route</Link>
+                <Link ejemplo="44" to={{ pathname: "/add-feedback", state: { funciona: 10 } }}>
                     <button className="button-purple"><SmallAddIcon />Add Feedback</button>
                 </Link>
             </div>

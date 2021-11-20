@@ -14,6 +14,11 @@ function feedbackData() {
           user:"Emma",
           username:"@ema-stuff",
           comment:"it's fine"
+        },
+        {
+          user:"Lily",
+          username:"@lily_ruva",
+          comment:"idk"
         }
       ]
     },
@@ -24,14 +29,68 @@ function feedbackData() {
       category: "Enhancement",
       status: "Planned",
       vote: "112",
+      comment: [
+        {
+          user:"Emma",
+          username:"@ema-stuff",
+          comment:"it's fine"
+        },
+        {
+          user:"Lily",
+          username:"@lily_ruva",
+          comment:"idk"
+        },
+        {
+          user:"Emma",
+          username:"@ema-stuff",
+          comment:"it's fine"
+        },
+        {
+          user:"Lily",
+          username:"@lily_ruva",
+          comment:"idk"
+        }
+      ]
     },
     {
-      id: uuidv4(),
+      id:uuidv4(),
       title: "Allow image/video upload to feedback",
       detail: "Images and screencasts can enhance comments on solutions.",
       category: "UI",
       status: "Live",
       vote: "51",
+      comment: [
+        {
+          user:"Emma",
+          username:"@ema-stuff",
+          comment:"it's fine"
+        },
+        {
+          user:"Lily",
+          username:"@lily_ruva",
+          comment:"idk"
+        },
+        {
+          user:"Emma",
+          username:"@ema-stuff",
+          comment:"it's fine"
+        },
+        {
+          user:"Lily",
+          username:"@lily_ruva",
+          comment:"idk"
+        },
+        {
+          user:"Emma",
+          username:"@ema-stuff",
+          comment:"it's fine"
+        },
+        {
+          user:"Lily",
+          username:"@lily_ruva",
+          comment:"idk"
+        }
+      ]
     },
     {
       id: uuidv4(),
@@ -40,6 +99,18 @@ function feedbackData() {
       category: "Bug",
       status: "Live",
       vote: "3",
+      comment: [
+        {
+          user:"Emma",
+          username:"@ema-stuff",
+          comment:"it's fine"
+        },
+        {
+          user:"Lily",
+          username:"@lily_ruva",
+          comment:"idk"
+        }
+      ]
     },
     {
       id: uuidv4(),
@@ -49,6 +120,13 @@ function feedbackData() {
       category: "Feature",
       status: "In-Progress",
       vote: "99",
+      comment: [
+        {
+          user:"Emma",
+          username:"@ema-stuff",
+          comment:"it's fine"
+        },
+      ]
     },
     {
       id: uuidv4(),
@@ -57,6 +135,23 @@ function feedbackData() {
       category: "UX",
       status: "Planned",
       vote: "42",
+      comment: [
+        {
+          user:"Emma",
+          username:"@ema-stuff",
+          comment:"it's fine"
+        },
+        {
+          user:"Lily",
+          username:"@lily_ruva",
+          comment:"idk"
+        },
+        {
+          user:"Emma",
+          username:"@ema-stuff",
+          comment:"it's fine"
+        },
+      ]
     }
   ]
   );

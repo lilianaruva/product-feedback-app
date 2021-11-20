@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import { Formik, Form, Field } from "formik";
-import { FormControl, FormLabel, FormErrorMessage, Input, Select, Textarea, Button } from "@chakra-ui/react";
+import { FormControl, FormLabel, FormErrorMessage, Input} from "@chakra-ui/react";
 import './login.css';
 
 const Login = () => {

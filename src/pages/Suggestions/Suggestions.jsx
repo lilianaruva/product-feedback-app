@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Profile from "./components/profile";
 import Tags from "./components/tags";
 import Roadmap from "./components/roadmap";
@@ -6,8 +6,6 @@ import SuggestionsCard from "./components/suggestionsCard";
 import SuggestionBar from "./components/suggestionBar";
 import './styles/suggestion.css';
 
-import { collection, getDocs } from "firebase/firestore";
-import db from "../../firebase/firebaseConfig";
 
 import data from "../../data";
 
@@ -15,35 +13,89 @@ const Suggestion = () => {
 
     const [feedbacks, setFeedbacks] = useState(data);
 
-
-    console.log(feedbacks);
-    console.log(
-        feedbacks?.map(
-                feedback => console.log(feedback)
-            ));
+    const [feedbackscopy, setFeedbackscopy] = useState(data);
 
 
-    useEffect(() => {
-        /*const getData = async() => {
-            const feedbacks = await getDocs(collection(db, "feedback"));
-            console.log(feedbacks.docs);
+    const handleFeebackFilter = (filtercategory) => {
+        if (filtercategory === "All") {
+            setFeedbacks(feedbackscopy);
         }
-        getData();*/
-    }, []);
+        else {
+            setFeedbacks(feedbacks.filter(fb => {
+                return fb.category === filtercategory
+            }))
+        }
+    }
+    const handleSortBar = (typeofSort) => {
+        if (typeofSort === "most-upvote") {
 
+
+            const sortedArray = feedbacks.sort((a, b) => {
+                if (parseInt(a.vote) < parseInt(b.vote)) {
+                    return 1;
+                }
+                if (parseInt(a.vote) > parseInt(b.vote)) {
+                    return -1;
+                }
+                return 0;
+            })
+            setFeedbacks([...sortedArray]);
+
+        }
+
+        if (typeofSort === "least-upvote") {
+            const sortedArray = feedbacks.sort((a, b) => {
+                if (parseInt(a.vote) > parseInt(b.vote)) {
+                    return 1;
+                }
+                if (parseInt(a.vote) < parseInt(b.vote)) {
+                    return -1;
+                }
+                return 0;
+            })
+            setFeedbacks([...sortedArray]);
+
+        }
+
+        if (typeofSort === "most-comments") {
+            const sortedArray = feedbacks.sort((a, b) => {
+                if (a.comment.length < b.comment.length) {
+                    return 1;
+                }
+                if (a.comment.length > b.comment.length) {
+                    return -1;
+                }
+                return 0;
+            })
+            setFeedbacks([...sortedArray]);
+        }
+
+        if (typeofSort === "least-comments") {
+            const sortedArray = feedbacks.sort((a, b) => {
+                if (a.comment.length > b.comment.length) {
+                    return 1;
+                }
+                if (a.comment.length < b.comment.length) {
+                    return -1;
+                }
+                return 0;
+            })
+            setFeedbacks([...sortedArray]);
+        }
+    }
     return (
         <>
             <div className="suggest">
                 <div className="suggest-left">
                     <Profile />
-                    <Tags />
+                    <Tags updatefilter={handleFeebackFilter} />
                     <Roadmap />
                 </div>
                 <div className="suggest-right">
-                    <SuggestionBar />
+                    <SuggestionBar setData={setFeedbacks} updatefilter={handleSortBar} />
                     {
                         feedbacks.map(fb =>
-                            <SuggestionsCard title={fb.title} detail={fb.detail} category={fb.category} vote={fb.vote}/>
+                            <SuggestionsCard key={fb.id + fb.detail + fb.title} title={fb.title} detail={fb.detail} category={fb.category} vote={fb.vote} comment={fb.comment.length} />
                         )
                     }
                 </div>

@@ -6,7 +6,7 @@ const Comment = ({ name, username, comment }) => {
         <>
             <div className="comment-container">
                 <div className="comment-image">
-                    <img src="https://expertphotography.b-cdn.net/wp-content/uploads/2020/08/social-media-profile-photos-3.jpg"></img>
+                    <img alt="user" src="https://expertphotography.b-cdn.net/wp-content/uploads/2020/08/social-media-profile-photos-3.jpg"></img>
                 </div>
                 <div className="comment-content">
                     <div className="comment-top">

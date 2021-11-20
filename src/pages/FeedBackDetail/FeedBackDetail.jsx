@@ -19,7 +19,9 @@ const FeedBackDetails = () => {
                                 <a>Go Back</a>
                             </Link>
                         </div>
+                        <Link to="/edit-feedback">
                         <button className="button-blue">Edit Feedback</button>
+                        </Link>
                     </div>
                     <SuggestionsCard />
                     <CommentContainer />

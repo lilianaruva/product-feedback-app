@@ -1,11 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Formik, Form, Field } from "formik";
-import { FormControl, FormLabel, FormErrorMessage, Input, Select, Textarea} from "@chakra-ui/react";
+import { FormControl, FormLabel, FormErrorMessage, Input, Select, Textarea } from "@chakra-ui/react";
 import { ChevronLeftIcon } from "@chakra-ui/icons";
 import './styles/newFeedback.css';
+import { useLocation } from 'react-router-dom';
 
-const NewFeedBack = () => {
+const NewFeedBack = (props) => {
+    const location = useLocation();
+
+    const  fromNotifications = location.state;
 
     const icon = () => (
         <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -21,20 +25,23 @@ const NewFeedBack = () => {
         </svg>
 
     )
-
+    console.log(props);
     function validateInputs(value) {
         let error
         if (!value) {
             error = "Can't be empty"
-        } else if (value.toLowerCase() !== "a") {
-            error = "Error"
         }
         return error
     }
 
     return (
         <>
+
             <div className="newFeedback">
+                {
+                    console.log(fromNotifications ?? "")
+
+                }
                 <div className="goBack">
                     <ChevronLeftIcon color="#4661E6" />
                     <Link to="/">

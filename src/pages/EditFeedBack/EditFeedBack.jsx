@@ -1,6 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Formik, Form, Field } from "formik";
-import { FormControl, FormLabel, FormErrorMessage, Input, Select, Textarea, Button } from "@chakra-ui/react";
+import { FormControl, FormLabel, FormErrorMessage, Input, Select, Textarea} from "@chakra-ui/react";
 import { ChevronLeftIcon } from "@chakra-ui/icons";
 import './styles/editfeedback.css'
 
@@ -23,8 +24,6 @@ const EditFeedBack = () => {
         let error
         if (!value) {
             error = "Name is required"
-        } else if (value.toLowerCase() !== "naruto") {
-            error = "Jeez! You're not a fan 😱"
         }
         return error
     }
@@ -34,7 +33,9 @@ const EditFeedBack = () => {
             <div className="newFeedback">
                 <div className="goBack">
                     <ChevronLeftIcon color="#4661E6" />
-                    <a>Go Back</a>
+                    <Link to="/feedback-detail">
+                        <a>Go Back</a>
+                    </Link>
                 </div>
                 <div className="circle-icon">
                     {icon()}
@@ -94,21 +95,27 @@ const EditFeedBack = () => {
                                 </Field>
                                 <div className="button-group">
                                     <div className="button-left">
-                                        <button className="button-cancel">Delete</button>
+                                        <Link to="/feedback-detail">
+                                            <button className="button-cancel">Delete</button>
+                                        </Link>
                                     </div>
                                     <div className="button-right">
-                                        <button
-                                            className="button-gray"
-                                            isLoading={props.isSubmitting}
-                                        >
-                                            Cancel
-                                        </button>
-                                        <button
-                                            className="button-purplelarge"
-                                            isLoading={props.isSubmitting}
-                                        >
-                                            Add Feedback
-                                        </button>
+                                        <Link to="/feedback-detail">
+                                            <button
+                                                className="button-gray"
+                                                isLoading={props.isSubmitting}
+                                            >
+                                                Cancel
+                                            </button>
+                                        </Link>
+                                        <Link to="/feedback-detail">
+                                            <button
+                                                className="button-purplelarge"
+                                                isLoading={props.isSubmitting}
+                                            >
+                                                Add Feedback
+                                            </button>
+                                        </Link>
                                     </div>
                                 </div>
                             </Form>
