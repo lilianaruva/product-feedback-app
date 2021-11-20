@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/pointList.css';
+import '../styles/pointListC.css';
 
 const PointListC = ({ title, color }) => {
 

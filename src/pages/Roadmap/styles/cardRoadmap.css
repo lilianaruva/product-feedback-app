@@ -23,11 +23,25 @@
     margin-bottom: 0.5rem;
 }
 
-.card-line{
+.card-line-orange{
     width: 100%;
     height: 6px;
     border-radius: 5px 5px 0 0;
     background-color: #F49F85;
+}
+
+.card-line-blue{
+    width: 100%;
+    height: 6px;
+    border-radius: 5px 5px 0 0;
+    background-color: #62BCFA;
+}
+
+.card-line-purple{
+    width: 100%;
+    height: 6px;
+    border-radius: 5px 5px 0 0;
+    background-color: #AD1FEA;
 }
 
 .card-content{
