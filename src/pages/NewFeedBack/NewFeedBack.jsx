@@ -1,16 +1,26 @@
-import React from "react";
+import React,{useState} from "react";
 import { Link } from "react-router-dom";
 import { Formik, Form, Field } from "formik";
-import { FormControl, FormLabel, FormErrorMessage, Input, Select, Textarea } from "@chakra-ui/react";
+import { FormControl, FormLabel, FormErrorMessage, Input, Select, Textarea,FormHelperText } from "@chakra-ui/react";
 import { ChevronLeftIcon } from "@chakra-ui/icons";
 import './styles/newFeedback.css';
 import { useLocation } from 'react-router-dom';
-
+import { useSelector, useDispatch } from 'react-redux'
+import {rdxfeedbackactions } from '../../redux/reducers/feedback';
+import { v4 as uuidv4 } from "uuid";
 const NewFeedBack = (props) => {
+    const dispatch = useDispatch();
     const location = useLocation();
-
+    const [form,setFormValues ] = useState({
+        id:uuidv4(),
+        title: "",
+        category: "Feature",
+        detail:"",
+        vote:"0",
+        status: "Planned",
+        comment:[],
+    });
     const  fromNotifications = location.state;
-
     const icon = () => (
         <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="28" cy="28" r="28" fill="url(#paint0_radial_0_1342)" />
@@ -25,7 +35,27 @@ const NewFeedBack = (props) => {
         </svg>
 
     )
-    console.log(props);
+    const handleChangeTitle =  (e) =>{
+        setFormValues({...form,title:e.target.value});
+        
+    }
+
+    const handleChangeDetail =  (e) =>{
+        setFormValues({...form,detail:e.target.value});
+      
+    }
+
+    const handleChangeCategory =  (e) =>{
+        setFormValues({...form,category:e.target.value});
+        
+    }
+
+    const handleSubmitStore = () =>{
+
+        dispatch(rdxfeedbackactions.addFeedback({feedback:form}));
+     
+
+    }
     function validateInputs(value) {
         let error
         if (!value) {
@@ -39,7 +69,7 @@ const NewFeedBack = (props) => {
 
             <div className="newFeedback">
                 {
-                    console.log(fromNotifications ?? "")
+                   
 
                 }
                 <div className="goBack">
@@ -54,8 +84,6 @@ const NewFeedBack = (props) => {
 
 
                 <div className="feedback-form">
-
-
                     <h1>Create New Feedback</h1>
                     <br />
                     <Formik
@@ -68,35 +96,29 @@ const NewFeedBack = (props) => {
                     >
                         {(props) => (
                             <Form>
-                                <Field name="name" validate={validateInputs}>
-                                    {({ field, form }) => (
-                                        <FormControl className="form-control" isInvalid={form.errors.name && form.touched.name}>
-                                            <FormLabel fontWeight="bold" margin="0" fontSize="14px" htmlFor="name">Feedback Title</FormLabel>
+                                <FormControl id="email">    
+                                <FormLabel fontWeight="bold" margin="0" fontSize="14px" htmlFor="name">Feedback Title</FormLabel>
                                             <FormLabel fontSize="14px" htmlFor="name" color="#647196">Add a short, descriptive headline</FormLabel>
-                                            <Input className="input-form" width="458px" {...field} variant="filled" backgroundColor="#F7F8FD" id="name" />
-                                            <FormErrorMessage>{form.errors.name}</FormErrorMessage>
-                                        </FormControl>
-                                    )}
-                                </Field>
+                                          
+                                <Input onChange={handleChangeTitle} className="input-form" width="458px"  variant="filled" backgroundColor="#F7F8FD" id="name" />
+                                 <FormHelperText>We'll never share your email.</FormHelperText>
+                                </FormControl>
                                 <FormControl id="country">
                                     <FormLabel fontSize="14px" margin="0" fontWeight="bold" htmlFor="name">Category</FormLabel>
                                     <FormLabel fontSize="14px" htmlFor="name" color="#647196">Choose a category for your feedback</FormLabel>
-                                    <Select width="458px" backgroundColor="#F7F8FD">
+                                    <Select onChange={handleChangeCategory} width="458px" backgroundColor="#F7F8FD">
                                         <option>Feature</option>
                                         <option>UI</option>
                                         <option>UX</option>
                                     </Select>
                                 </FormControl>
-                                <Field name="name" validate={validateInputs}>
-                                    {({ field, form }) => (
-                                        <FormControl className="form-control" isInvalid={form.errors.name && form.touched.name}>
+                                        <FormControl className="form-control" >
                                             <FormLabel fontSize="14px" margin="0" fontWeight="bold" htmlFor="name">Feedback Detail</FormLabel>
                                             <FormLabel fontSize="14px" htmlFor="name" color="#647196">Include any specific comments on what should be improved, added, etc.</FormLabel>
-                                            <Textarea width="458px" {...field} id="name" className="input-form" width="458px" {...field} variant="filled" backgroundColor="#F7F8FD" id="name" />
-                                            <FormErrorMessage>{form.errors.name}</FormErrorMessage>
+                                            <Textarea onChange={handleChangeDetail} width="458px"  id="name" className="input-form" width="458px"  variant="filled" backgroundColor="#F7F8FD" id="name" />
+                                           
                                         </FormControl>
-                                    )}
-                                </Field>
+                               
                                 <div className="button-group">
                                     <Link to="/">
                                         <button
@@ -110,6 +132,7 @@ const NewFeedBack = (props) => {
                                         <button
                                             className="button-purplelarge"
                                             isLoading={props.isSubmitting}
+                                            onClick={handleSubmitStore}
                                         >
                                             Add Feedback
                                         </button>

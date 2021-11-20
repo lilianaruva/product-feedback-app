@@ -2,10 +2,8 @@ import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import '../styles/suggestionBar.css'
 import { Menu, MenuButton, MenuList, MenuOptionGroup, MenuItemOption } from "@chakra-ui/react";
-import { SmallAddIcon, ChevronDownIcon } from "@chakra-ui/icons";
+import {  SmallAddIcon, ChevronDownIcon } from "@chakra-ui/icons";
 import data from "../../../data";
-
-
 
 const SuggestionsCard = (props) => {
     const [feedbacks, setFeedbacks] = useState(data);
@@ -34,7 +32,7 @@ const SuggestionsCard = (props) => {
             <div className="suggestionBar-container">
                 <div className="suggestion-icon">
                     {icon()}
-                    <h1 className="suggestion-title">{feedbacks.length} Suggestions</h1>
+                    <h1 className="suggestion-title">{props.suggestions} Suggestions</h1>
                 </div>
                 <Menu>
                     <MenuButton>Sort by {currentSort}<ChevronDownIcon /></MenuButton>
@@ -50,7 +48,6 @@ const SuggestionsCard = (props) => {
                         </MenuOptionGroup>
                     </MenuList>
                 </Menu>
-                <Link to={{ pathname: '/add-feedback', state: { fromNotifications: true } }}>My route</Link>
                 <Link ejemplo="44" to={{ pathname: "/add-feedback", state: { funciona: 10 } }}>
                     <button className="button-purple"><SmallAddIcon />Add Feedback</button>
                 </Link>

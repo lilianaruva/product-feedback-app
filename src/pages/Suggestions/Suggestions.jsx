@@ -5,17 +5,12 @@ import Roadmap from "./components/roadmap";
 import SuggestionsCard from "./components/suggestionsCard";
 import SuggestionBar from "./components/suggestionBar";
 import './styles/suggestion.css';
-
-
 import data from "../../data";
-
+import { useSelector, useDispatch } from 'react-redux'
+import {rdxfeedbackactions } from '../../redux/reducers/feedback';
 const Suggestion = () => {
-
-    const [feedbacks, setFeedbacks] = useState(data);
-
-    const [feedbackscopy, setFeedbackscopy] = useState(data);
-
-
+    const [feedbacks, setFeedbacks] = useState([...useSelector(state=>state.feedback.feedbacks)]);
+    const [feedbackscopy, setFeedbackscopy] = useState([...useSelector(state=>state.feedback.feedbacks)]);
     const handleFeebackFilter = (filtercategory) => {
         if (filtercategory === "All") {
             setFeedbacks(feedbackscopy);
@@ -28,6 +23,8 @@ const Suggestion = () => {
     }
     const handleSortBar = (typeofSort) => {
         if (typeofSort === "Most Upvote") {
+
+
             const sortedArray = feedbacks.sort((a, b) => {
                 if (parseInt(a.vote) < parseInt(b.vote)) {
                     return 1;
@@ -90,10 +87,10 @@ const Suggestion = () => {
                     <Roadmap />
                 </div>
                 <div className="suggest-right">
-                    <SuggestionBar setData={setFeedbacks} updatefilter={handleSortBar} />
+                    <SuggestionBar suggestions={feedbacks.length} setData={setFeedbacks} updatefilter={handleSortBar} />
                     {
                         feedbacks.map(fb =>
-                            <SuggestionsCard key={fb.id + fb.detail + fb.title} title={fb.title} detail={fb.detail} category={fb.category} vote={fb.vote} comment={fb.comment.length} />
+                            <SuggestionsCard key={fb.id + fb.detail + fb.title} title={fb.title} detail={fb.detail} category={fb.category} vote={fb.vote} comment={fb.comment?.length?? []} />
                         )
                     }
                 </div>
