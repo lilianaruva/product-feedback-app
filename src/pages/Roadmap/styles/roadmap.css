@@ -35,3 +35,22 @@
     border-radius: 20px;
     border: transparent;
 }
+
+.columncard-container {
+    display: flex;
+    flex-direction: column;
+    background-color: #F7F8FD;
+    margin-top: 2rem;
+    max-width: 350px;
+    min-width: 251px;
+    margin: 1rem 1rem;
+}
+
+.title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.subtitle {
+    font-size: 18px;
+}

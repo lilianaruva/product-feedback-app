@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import NavRoadmap from "./components/navRoadmap";
-import ColumnCardContainer from "./components/columnCardContainer";
 import CardRoadmap from "./components/cardRoadmap";
 import './styles/roadmap.css';
 
