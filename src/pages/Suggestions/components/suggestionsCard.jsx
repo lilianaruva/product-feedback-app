@@ -3,7 +3,7 @@ import '../styles/suggestionsCard.css'
 import { Tag } from "@chakra-ui/react";
 import { ChevronUpIcon } from "@chakra-ui/icons";
 import { Link } from "react-router-dom";
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import {rdxfeedbackactions } from '../../../redux/reducers/feedback';
 const SuggestionsCard = ({ title, detail, category, vote, comment }) => {
 

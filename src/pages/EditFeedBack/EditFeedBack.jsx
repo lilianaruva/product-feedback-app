@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Formik, Form, Field } from "formik";
 import { FormControl, FormLabel, FormErrorMessage, Input, Select, Textarea} from "@chakra-ui/react";
 import { ChevronLeftIcon } from "@chakra-ui/icons";
-import './styles/editfeedback.css'
+import './editfeedback.css'
 
 const EditFeedBack = () => {
     const icon = () => (

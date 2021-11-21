@@ -3,10 +3,8 @@ import { Link } from "react-router-dom";
 import '../styles/suggestionBar.css'
 import { Menu, MenuButton, MenuList, MenuOptionGroup, MenuItemOption } from "@chakra-ui/react";
 import { SmallAddIcon, ChevronDownIcon } from "@chakra-ui/icons";
-import data from "../../../data";
 
 const SuggestionsCard = (props) => {
-    const [feedbacks, setFeedbacks] = useState(data);
     const [currentSort, setCurrentSort] = useState("Most Upvote");
 
     const icon = () => (
@@ -22,7 +20,6 @@ const SuggestionsCard = (props) => {
         </svg>
     )
     const handleMenuSortChange = (typefilter) => {
-        console.log(typefilter);
         setCurrentSort(typefilter);
         props.updatefilter(typefilter);
     }

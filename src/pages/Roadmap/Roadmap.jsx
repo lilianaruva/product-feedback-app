@@ -11,31 +11,7 @@ const Roadmap = () => {
     const planned = feedbacks.filter(status => status.status === 'Planned');
     const live = feedbacks.filter(status => status.status === 'Live');
     const inprogress = feedbacks.filter(status => status.status === 'In-Progress');
-    const array = (type) => {
-        if (type === 'Planned') {
-            return feedbacks.filter(status => status.status === 'Planned')
-        }
-        if (type === 'Live') {
-            return feedbacks.filter(status => status.status === 'Live')
-        }
-
-        if (type === 'In-Progress') {
-            return feedbacks.filter(status => status.status === 'In-Progress')
-        }
-    }
-
-    const roadmapColor = (type) => {
-        if (type === 'Planned') {
-            return "#F49F85"
-        }
-        if (type === 'Live') {
-            return "#AD1FEA"
-        }
-        if (type === 'In-Progress') {
-            return "#62BCFA"
-        }
-    }
-
+ 
     return (
         <>
             <div className="roadmap">

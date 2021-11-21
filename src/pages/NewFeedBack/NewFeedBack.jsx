@@ -1,9 +1,9 @@
 import React,{useState} from "react";
 import { Link } from "react-router-dom";
-import { Formik, Form, Field } from "formik";
+import { Formik, Form } from "formik";
 import { FormControl, FormLabel, FormErrorMessage, Input, Select, Textarea,FormHelperText } from "@chakra-ui/react";
 import { ChevronLeftIcon } from "@chakra-ui/icons";
-import './styles/newFeedback.css';
+import './newFeedback.css';
 import { useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux'
 import {rdxfeedbackactions } from '../../redux/reducers/feedback';

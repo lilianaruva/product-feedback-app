@@ -5,9 +5,8 @@ import Roadmap from "./components/roadmap";
 import SuggestionsCard from "./components/suggestionsCard";
 import SuggestionBar from "./components/suggestionBar";
 import './styles/suggestion.css';
-import data from "../../data";
-import { useSelector, useDispatch } from 'react-redux'
-import {rdxfeedbackactions } from '../../redux/reducers/feedback';
+import { useSelector } from 'react-redux'
+
 const Suggestion = () => {
     const [feedbacks, setFeedbacks] = useState([...useSelector(state=>state.feedback.feedbacks)]);
     const [feedbackscopy, setFeedbackscopy] = useState([...useSelector(state=>state.feedback.feedbacks)]);

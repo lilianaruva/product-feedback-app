@@ -10,7 +10,7 @@ const Roadmap = () => {
 
     const [feedbacks, setFeedbacks] = useState(data);
     const roadmap = feedbacks.map(x => x.status);
-    const filteredRoadmap = [... new Set(roadmap)]
+    const filteredRoadmap = [... new Set(roadmap)];
 
     const roadmapColor = (type) => {
         if (type === 'Planned') {
