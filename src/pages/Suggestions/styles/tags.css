@@ -1,10 +1,12 @@
 .tags-container{
     background-color: white;
     border-radius: 10px;
-    width: 255px;
+    width: 223px;
+    min-width: 223px;
     height: 166px;
     padding: 1rem;
     margin: 1.5rem 0;
+    flex-wrap: wrap;
 }
 
 .tag{
@@ -28,6 +30,7 @@
 
 @media screen and (max-width:1500px) {
     .tags-container {
+        width: 223px;
         height: 178px;
         margin-left: 0.5rem;
         margin-right: 0.5rem;

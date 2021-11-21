@@ -7,7 +7,8 @@ const Profile = () => {
         <>
             <Box
                 display="flex"
-                w="255px"
+                minWidth="223px"
+                maxWidth="255px"
                 h="100%"
                 borderRadius="md"
                 bgGradient="linear(to-r, #28A7ED, #A337F6, #E84D70)">

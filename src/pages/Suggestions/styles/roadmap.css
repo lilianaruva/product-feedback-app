@@ -1,7 +1,8 @@
 .roadmap-container{
     background-color: white;
     border-radius: 10px;
-    width: 255px;
+    max-width: 255px;
+    min-width: 223px;
     height: 165px;
     padding: 1rem;
 }
@@ -15,6 +16,7 @@
 .roadmap-top{
     display: flex;
     align-items: baseline;
+    justify-content: space-between;
 }
 
 .list{
@@ -23,7 +25,6 @@
 }
 
 .link{
-    margin-left: 6.5rem;
     color: #8397F8;
 }
 

@@ -3,7 +3,7 @@
     justify-content: space-between;
     align-items: center;
     align-content: center;
-    width: 825px;
+    max-width: 825px;
     height: 72px;
     border-radius: 10px;
     background-color: #373F68;
