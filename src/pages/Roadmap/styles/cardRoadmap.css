@@ -1,11 +1,14 @@
 .card-container{
-    width: 350px;
-    height: 272px;
+    max-width: 350px;
+    min-width: 223px;
+    height: 280px;
+    min-height: 251px;
     border-radius: 5px;
     color: #647196;
     background-color: white;
     font-size: 16px;
-    margin: 1rem 0;
+    margin: 0.5rem 0;
+    overflow-y: auto;
 }
 
 .card-container h2{

@@ -3,11 +3,13 @@
     align-content: center;
     align-items: center;
     border-radius: 10px;
-    width: 100%;
+    max-width: 100%;
+    min-width: 689px;
     height: 113px;
     background-color: #373F68;
     color: white;
     padding: 1.5rem;
+    justify-content: space-between;
 }
 
 .nav-left{
