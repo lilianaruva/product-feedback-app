@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import '../styles/suggestionBar.css'
 import { Menu, MenuButton, MenuList, MenuOptionGroup, MenuItemOption } from "@chakra-ui/react";
-import {  SmallAddIcon, ChevronDownIcon } from "@chakra-ui/icons";
+import { SmallAddIcon, ChevronDownIcon } from "@chakra-ui/icons";
 import data from "../../../data";
 
 const SuggestionsCard = (props) => {
     const [feedbacks, setFeedbacks] = useState(data);
-    const [currentSort, setCurrentSort] = useState("most-upvote");
+    const [currentSort, setCurrentSort] = useState("Most Upvote");
 
     const icon = () => (
         <svg width="23" height="24" viewBox="0 0 23 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -35,7 +35,10 @@ const SuggestionsCard = (props) => {
                     <h1 className="suggestion-title">{props.suggestions} Suggestions</h1>
                 </div>
                 <Menu>
-                    <MenuButton>Sort by {currentSort}<ChevronDownIcon /></MenuButton>
+                    <MenuButton>
+                        <div className="suggestion-sort">
+                            Sort by <h3>{currentSort}</h3><ChevronDownIcon />
+                        </div></MenuButton>
                     <MenuList minWidth="255px">
                         <MenuOptionGroup onChange={handleMenuSortChange} defaultValue="Most Upvote" type="radio">
                             <MenuItemOption color="#647196" className="sb-option" value="Most Upvote">Most Upvotes</MenuItemOption>

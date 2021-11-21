@@ -43,3 +43,13 @@
 .button-purple:hover{
     background-color: #C75AF6;
 }
+
+.suggestion-sort{
+    display: flex;
+    align-items: center;
+}
+
+.suggestion-sort h3{
+    margin-left: 0.5rem;
+    font-weight: bold;
+}
