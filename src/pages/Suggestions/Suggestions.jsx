@@ -8,7 +8,6 @@ import SuggestionCardMobile from "./components/mobile/suggestionCardMobile";
 import ProfileMobile from "./components/mobile/profileMobile";
 import './styles/suggestion.css';
 import { useSelector } from 'react-redux';
-import { motion } from "framer-motion";
 
 const Suggestion = () => {
     const [menuStatus, setMenuStatus] = useState(false); //menu toggle

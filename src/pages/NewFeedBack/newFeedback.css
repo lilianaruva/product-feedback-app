@@ -22,7 +22,7 @@
     font-size: 14px;
 }
 
-.goBack a:hover {
+.goBack p:hover {
     text-decoration: underline #647196;
     cursor: pointer;
 }

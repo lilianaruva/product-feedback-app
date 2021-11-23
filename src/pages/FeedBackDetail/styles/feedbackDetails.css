@@ -33,3 +33,8 @@
 .button-blue:hover{
     background-color: #7C91F9;
 }
+
+.goBack-link{
+    display: flex;
+    align-items: center;
+}

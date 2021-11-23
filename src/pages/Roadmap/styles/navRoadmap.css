@@ -17,12 +17,12 @@
     color: white;
 }
 
-.nav-left a{
+.nav-left p{
     font-weight: bold;
     font-size: 14px;
 }
 
-.nav-left a:hover{
+.nav-left p:hover{
     cursor: pointer;
     text-decoration: underline;
 }
@@ -34,4 +34,9 @@
 
 .nav-right{
     margin: 1rem;
+}
+
+.nav-back{
+    display: flex;
+    align-items: center;
 }

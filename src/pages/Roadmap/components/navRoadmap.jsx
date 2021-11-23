@@ -9,10 +9,12 @@ const NavRoadmap = () => {
         <>
             <div className="nav-container">
                 <div className="nav-left">
-                    <ChevronLeftIcon />
-                    <Link to="/">
-                        <a>Go Back</a>
-                    </Link>
+                    <div className="nav-back">
+                        <ChevronLeftIcon />
+                        <Link to="/">
+                            <p>Go Back</p>
+                        </Link>
+                    </div>
                     <h1>Roadmap</h1>
                 </div>
                 <Link to="/add-feedback">

@@ -17,16 +17,18 @@ const FeedBackDetails = () => {
                 <div className="feedback-content">
                     <div className="feedback-top">
                         <div className="goBack">
-                            <ChevronLeftIcon color="#4661E6" />
-                            <Link to="/">
-                                <a>Go Back</a>
-                            </Link>
+                            <div className="goBack-link">
+                                <ChevronLeftIcon color="#4661E6" />
+                                <Link to="/">
+                                    <p>Go Back</p>
+                                </Link>
+                            </div>
                         </div>
                         <Link to="/edit-feedback">
-                        <button className="button-blue">Edit Feedback</button>
+                            <button className="button-blue">Edit Feedback</button>
                         </Link>
                     </div>
-                    <SuggestionsCard title={feedback.title} detail={feedback.detail} category={feedback.category}vote={feedback.vote} comment={feedback.comment} />
+                    <SuggestionsCard title={feedback.title} detail={feedback.detail} category={feedback.category} vote={feedback.vote} comment={feedback.comment} />
                     <CommentContainer />
                     <AddComment />
                 </div>

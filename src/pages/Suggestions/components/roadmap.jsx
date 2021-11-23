@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { List, ListItem } from "@chakra-ui/react";
 import PointList from "./pointList";
 import '../styles/roadmap.css';
+import { v4 as uuidv4 } from "uuid";
 
 import data from '../../../data';
 
@@ -47,10 +48,10 @@ const Roadmap = () => {
                         <p className="link">View</p>
                     </Link>
                 </div>
-                <List spacing={3} className="list">
+                <List key={uuidv4()} spacing={3} className="list">
                     {
                         filteredRoadmap.map(r =>
-                            <ListItem>
+                            <ListItem key= {uuidv4()}>
                                 <PointList title={r} color={roadmapColor(r)} number={roadmapCount(r)} />
                             </ListItem>
                         )
