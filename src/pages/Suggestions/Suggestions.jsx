@@ -123,7 +123,6 @@ const Suggestion = () => {
         <>
             <div className="suggest">
                 {
-                    console.log(window.screen.width),
                     window.screen.width >= 376 ?
                         <div className="suggest-left">
                             <Profile />
