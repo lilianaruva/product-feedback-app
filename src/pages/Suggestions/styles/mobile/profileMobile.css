@@ -8,6 +8,10 @@
     border-radius: 10px;
     color: white;
     margin-bottom: 1rem;
+    position: relative;
+    z-index: 10;
+    top: 0;
+    right: 0;
 }
 
 .profile-CM h1{

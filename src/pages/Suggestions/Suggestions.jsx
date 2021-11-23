@@ -31,7 +31,7 @@ const sidebar = {
 };
 
 const Suggestion = () => {
-    const [isOpen, setIsOpen] = useState(false); //menu toggle
+    const [menuStatus, setMenuStatus] = useState(false); //menu toggle
 
 
     const [width, setWindowWidth] = useState(0); //set window state
@@ -131,7 +131,11 @@ const Suggestion = () => {
                             <Roadmap />
                         </div> :
                         <div className="suggest-left">
-                            <ProfileMobile />
+                            <ProfileMobile menuStatus={menuStatus} setMenuStatus={setMenuStatus}  />
+                            <div className={`menu-container ${menuStatus ? "active-menu" : ""}`}>
+                                <Tags updatefilter={handleFeebackFilter} />
+                                <Roadmap />
+                            </div>
                         </div>
                 }
                 <div className="suggest-right">

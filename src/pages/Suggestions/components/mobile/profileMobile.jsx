@@ -1,9 +1,9 @@
 import React from "react";
 import { Box } from "@chakra-ui/react";
-import '../../styles/profileMobile.css';
+import '../../styles/mobile/profileMobile.css';
 
 
-const ProfileMobile = () => {
+const ProfileMobile = ({ menuStatus, setMenuStatus }) => {
 
     const icon = () => (
         <svg width="20" height="17" viewBox="0 0 20 17" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -28,7 +28,7 @@ const ProfileMobile = () => {
                         <h1>Frontend Mentor</h1>
                         <p>Feedback details</p>
                     </div>
-                    <button className="buttonMenuMobile">
+                    <button className="buttonMenuMobile" onClick={()=> setMenuStatus(!menuStatus)}>
                         {icon()}
                     </button>
                 </Box>

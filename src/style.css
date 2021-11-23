@@ -1,9 +1,17 @@
 * {
     font-family: 'Jost', sans-serif;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
 }
 
 html, body{
     background-color: #F7F8FD;
+    margin:0;
 }
 
 .body1 {

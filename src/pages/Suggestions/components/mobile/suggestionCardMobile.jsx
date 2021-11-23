@@ -1,5 +1,5 @@
 import React from "react";
-import '../../styles/suggestionCardMobile.css'
+import '../../styles/mobile/suggestionCardMobile.css'
 import { Tag } from "@chakra-ui/react";
 import { ChevronUpIcon } from "@chakra-ui/icons";
 import { Link } from "react-router-dom";
