@@ -1,0 +1,28 @@
+.profile-CM{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    width: 375px;
+    height: 72px;
+    border-radius: 10px;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.profile-CM h1{
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.profile-CM p{
+    font-size: 13px;
+}
+
+.profile-CM-content{
+    margin-left: 1rem;
+}
+
+.buttonMenuMobile{
+    margin-right: 1rem;
+}

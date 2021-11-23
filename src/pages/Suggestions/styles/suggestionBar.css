@@ -53,3 +53,15 @@
     margin-left: 0.5rem;
     font-weight: bold;
 }
+
+@media screen and (max-width:375px) {
+    .button-purple{
+        width:134px;
+        height: 44px;
+        border-radius: 10px;
+        font-weight: bold;
+        font-size: 13px;
+        color: #fff;
+        background-color: #AD1FEA;
+    }
+}

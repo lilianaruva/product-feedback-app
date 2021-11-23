@@ -1,15 +1,42 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Profile from "./components/profile";
 import Tags from "./components/tags";
 import Roadmap from "./components/roadmap";
 import SuggestionsCard from "./components/suggestionsCard";
 import SuggestionBar from "./components/suggestionBar";
+import SuggestionCardMobile from "./components/mobile/suggestionCardMobile";
+import ProfileMobile from "./components/mobile/profileMobile";
 import './styles/suggestion.css';
-import { useSelector } from 'react-redux'
+import { useSelector } from 'react-redux';
+import { motion } from "framer-motion";
+
+const sidebar = {
+    open: (height = 1000) => ({
+        clipPath: `circle(${height * 2 + 200}px at 40px 40px)`,
+        transition: {
+            type: "spring",
+            stiffness: 20,
+            restDelta: 2
+        }
+    }),
+    closed: {
+        clipPath: "circle(30px at 40px 40px)",
+        transition: {
+            delay: 0.5,
+            type: "spring",
+            stiffness: 400,
+            damping: 40
+        }
+    }
+};
 
 const Suggestion = () => {
-    const [feedbacks, setFeedbacks] = useState([...useSelector(state=>state.feedback.feedbacks)]);
-    const [feedbackscopy, setFeedbackscopy] = useState([...useSelector(state=>state.feedback.feedbacks)]);
+    const [isOpen, setIsOpen] = useState(false); //menu toggle
+
+
+    const [width, setWindowWidth] = useState(0); //set window state
+    const [feedbacks, setFeedbacks] = useState([...useSelector(state => state.feedback.feedbacks)]);
+    const [feedbackscopy, setFeedbackscopy] = useState([...useSelector(state => state.feedback.feedbacks)]);
     const handleFeebackFilter = (filtercategory) => {
         if (filtercategory === "All") {
             setFeedbacks(feedbackscopy);
@@ -22,8 +49,6 @@ const Suggestion = () => {
     }
     const handleSortBar = (typeofSort) => {
         if (typeofSort === "Most Upvote") {
-
-
             const sortedArray = feedbacks.sort((a, b) => {
                 if (parseInt(a.vote) < parseInt(b.vote)) {
                     return 1;
@@ -77,20 +102,48 @@ const Suggestion = () => {
             setFeedbacks([...sortedArray]);
         }
     }
+
+    const updateDimensions = () => {
+        const width = window.innerWidth;
+        setWindowWidth(width);
+    }
+
+    useEffect(() => {
+        updateDimensions();
+        window.addEventListener("resize", updateDimensions);
+
+        return () => window.removeEventListener("resize", updateDimensions);
+    }, [])
+
+    const mobileVersion = {
+        showMobileVersion: width <= 375
+    }
+
     return (
         <>
             <div className="suggest">
-                <div className="suggest-left">
-                    <Profile />
-                    <Tags updatefilter={handleFeebackFilter} />
-                    <Roadmap />
-                </div>
+                {
+                    console.log(window.screen.width),
+                    window.screen.width >= 376 ?
+                        <div className="suggest-left">
+                            <Profile />
+                            <Tags updatefilter={handleFeebackFilter} />
+                            <Roadmap />
+                        </div> :
+                        <div className="suggest-left">
+                            <ProfileMobile />
+                        </div>
+                }
                 <div className="suggest-right">
                     <SuggestionBar suggestions={feedbacks.length} setData={setFeedbacks} updatefilter={handleSortBar} />
                     {
-                        feedbacks.map(fb =>
-                            <SuggestionsCard key={fb.id + fb.detail + fb.title} title={fb.title} detail={fb.detail} category={fb.category} vote={fb.vote} comment={fb.comment?.length?? []} />
-                        )
+                        window.screen.width >= 376 ?
+                            feedbacks.map(fb =>
+                                <SuggestionsCard key={fb.id + fb.detail + fb.title} title={fb.title} detail={fb.detail} category={fb.category} vote={fb.vote} comment={fb.comment?.length ?? []} />
+                            ) :
+                            feedbacks.map(fb =>
+                                <SuggestionCardMobile key={fb.id + fb.detail + fb.title} title={fb.title} detail={fb.detail} category={fb.category} vote={fb.vote} comment={fb.comment?.length ?? []} />
+                            )
                     }
                 </div>
             </div>

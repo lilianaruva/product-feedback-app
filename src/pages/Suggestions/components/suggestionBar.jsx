@@ -27,10 +27,13 @@ const SuggestionsCard = (props) => {
     return (
         <>
             <div className="suggestionBar-container">
-                <div className="suggestion-icon">
-                    {icon()}
-                    <h1 className="suggestion-title">{props.suggestions} Suggestions</h1>
-                </div>
+                {
+                    window.innerWidth <= 375 ?
+                        <div className="suggestion-icon">
+                            {icon()}
+                            <h1 className="suggestion-title">{props.suggestions} Suggestions</h1>
+                        </div> : ""
+                }
                 <Menu>
                     <MenuButton>
                         <div className="suggestion-sort">

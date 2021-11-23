@@ -33,7 +33,18 @@
         align-content: center;
         justify-content: space-between;
     }
-    .suggest-right{
-        margin:0;
+
+    .suggest-right {
+        margin: 0;
+    }
+}
+
+@media screen and (max-width:375px) {
+    .suggest-left {
+        display: flex;
+        flex-direction: column;
+    }
+    .suggest{
+        margin-top: 0;
     }
 }
