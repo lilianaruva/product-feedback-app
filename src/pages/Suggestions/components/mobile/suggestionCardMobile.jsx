@@ -5,7 +5,7 @@ import { ChevronUpIcon } from "@chakra-ui/icons";
 import { Link } from "react-router-dom";
 import { useDispatch } from 'react-redux'
 import { rdxfeedbackactions } from '../../../../redux/reducers/feedback';
-const SuggestionCardMobile = ({ title, detail, category, vote, comment }) => {
+const SuggestionCardMobile = ({ title, detail, category, vote, comment, link }) => {
 
     const dispatch = useDispatch();
     const icon = () => (
@@ -24,9 +24,12 @@ const SuggestionCardMobile = ({ title, detail, category, vote, comment }) => {
             <div className="suggestionsCard-containerM">
                 <div className="sC-contentM">
                     <div onClick={onClickSelecSuggestion}>
-                        <Link to="feedback-detailM">
+                        {link ?
+                            <Link to="/feedback-detail">
+                                <h1>{title}</h1>
+                            </Link> :
                             <h1>{title}</h1>
-                        </Link>
+                        }
                     </div>
                     <p>{detail}</p>
                     <Tag className="tag" backgroundColor="#F2F4FF" color="#4661E6" fontWeight="semiBold">{category}</Tag>

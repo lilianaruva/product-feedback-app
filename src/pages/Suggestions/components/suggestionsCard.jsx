@@ -4,8 +4,8 @@ import { Tag } from "@chakra-ui/react";
 import { ChevronUpIcon } from "@chakra-ui/icons";
 import { Link } from "react-router-dom";
 import { useDispatch } from 'react-redux'
-import {rdxfeedbackactions } from '../../../redux/reducers/feedback';
-const SuggestionsCard = ({ title, detail, category, vote, comment }) => {
+import { rdxfeedbackactions } from '../../../redux/reducers/feedback';
+const SuggestionsCard = ({ title, detail, category, vote, comment, link }) => {
 
     const dispatch = useDispatch();
     const icon = () => (
@@ -14,11 +14,11 @@ const SuggestionsCard = ({ title, detail, category, vote, comment }) => {
         </svg>
     )
 
-    const onClickSelecSuggestion = () =>{
+    const onClickSelecSuggestion = () => {
         console.log(rdxfeedbackactions);
-        const selectedFeedback = {title,detail,category,vote,comment}
-        dispatch(rdxfeedbackactions.changeSelectedFeedback({selectedFeedback:selectedFeedback}));
-    } 
+        const selectedFeedback = { title, detail, category, vote, comment }
+        dispatch(rdxfeedbackactions.changeSelectedFeedback({ selectedFeedback: selectedFeedback }));
+    }
     return (
         <>
             <div className="suggestionsCard-container">
@@ -28,9 +28,12 @@ const SuggestionsCard = ({ title, detail, category, vote, comment }) => {
                 </div>
                 <div className="sC-content">
                     <div onClick={onClickSelecSuggestion}>
-                    <Link to="feedback-detail">
-                        <h1>{title}</h1>
-                    </Link>
+                        {
+                            link ?
+                                <Link to="/feedback-detail">
+                                    <h1>{title}</h1>
+                                </Link> :
+                                <h1>{title}</h1>}
                     </div>
                     <p>{detail}</p>
                     <Tag className="tag" backgroundColor="#F2F4FF" color="#4661E6" fontWeight="semiBold">{category}</Tag>

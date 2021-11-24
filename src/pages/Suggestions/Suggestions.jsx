@@ -109,7 +109,7 @@ const Suggestion = () => {
                             <Roadmap />
                         </div> :
                         <div className="suggest-left">
-                            <ProfileMobile menuStatus={menuStatus} setMenuStatus={setMenuStatus}  />
+                            <ProfileMobile menuStatus={menuStatus} setMenuStatus={setMenuStatus} />
                             <div className={`menu-container ${menuStatus ? "active-menu" : ""}`}>
                                 <Tags updatefilter={handleFeebackFilter} />
                                 <Roadmap />
@@ -121,10 +121,10 @@ const Suggestion = () => {
                     {
                         window.screen.width >= 376 ?
                             feedbacks.map(fb =>
-                                <SuggestionsCard key={fb.id + fb.detail + fb.title} title={fb.title} detail={fb.detail} category={fb.category} vote={fb.vote} comment={fb.comment?.length ?? []} />
+                                <SuggestionsCard key={fb.id + fb.detail + fb.title} title={fb.title} detail={fb.detail} category={fb.category} vote={fb.vote} comment={fb.comment?.length ?? []} link="true" />
                             ) :
                             feedbacks.map(fb =>
-                                <SuggestionCardMobile key={fb.id + fb.detail + fb.title} title={fb.title} detail={fb.detail} category={fb.category} vote={fb.vote} comment={fb.comment?.length ?? []} />
+                                <SuggestionCardMobile key={fb.id + fb.detail + fb.title} title={fb.title} detail={fb.detail} category={fb.category} vote={fb.vote} comment={fb.comment?.length ?? []} link="true" />
                             )
                     }
                 </div>

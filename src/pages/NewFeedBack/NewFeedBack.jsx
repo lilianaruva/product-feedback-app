@@ -96,12 +96,11 @@ const NewFeedBack = (props) => {
                     >
                         {(props) => (
                             <Form>
-                                <FormControl id="email">
-                                    <FormLabel fontWeight="bold" margin="0" fontSize="14px" htmlFor="name">Feedback Title</FormLabel>
-                                    <FormLabel fontSize="14px" htmlFor="name" color="#647196">Add a short, descriptive headline</FormLabel>
+                                <FormControl id="title">
+                                    <FormLabel fontWeight="bold" margin="0" fontSize="14px" htmlFor="title">Feedback Title</FormLabel>
+                                    <FormLabel fontSize="14px" htmlFor="subtitle" color="#647196">Add a short, descriptive headline</FormLabel>
 
-                                    <Input onChange={handleChangeTitle} className="input-form" width="458px" variant="filled" backgroundColor="#F7F8FD" id="name" />
-                                    <FormHelperText>We'll never share your email.</FormHelperText>
+                                    <Input onChange={handleChangeTitle} className="input-form" width="458px" variant="filled" backgroundColor="#F7F8FD" id="title" />
                                 </FormControl>
                                 <FormControl id="country">
                                     <FormLabel fontSize="14px" margin="0" fontWeight="bold" htmlFor="name">Category</FormLabel>
