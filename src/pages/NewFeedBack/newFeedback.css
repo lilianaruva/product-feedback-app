@@ -58,7 +58,7 @@
     font-weight: bold;
 }
 
-.button-gray {
+.button-cancel {
     height: 44px;
     width: 93px;
     background-color: #3A4374;
@@ -79,11 +79,12 @@
     font-size: 14px;
 }
 
-.button-gray:hover{
+.button-cancel:hover {
     background-color: #656EA3;
 }
 
-.button-purplelarge:hover{
+
+.button-purplelarge:hover {
     background-color: #C75AF6;
 }
 
@@ -126,4 +127,24 @@
         top: 6%;
         z-index: 2;
     }
+}
+
+select {
+    background-color: #F7F8FD !important;
+}
+
+.input {
+    background-color: #F7F8FD !important;
+}
+
+button:hover {
+   box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.2) !important;
+}
+
+.css-8v5y5u{
+    background-color: #AD1FEA !important;
+}
+
+.css-u817oc{
+    background-color: #3A4374 !important;
 }

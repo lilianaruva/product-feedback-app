@@ -1,26 +1,72 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { Formik, Form } from "formik";
-import { FormControl, FormLabel, FormErrorMessage, Input, Select, Textarea, FormHelperText } from "@chakra-ui/react";
+import { Formik } from "formik";
+import { FormLabel, ButtonGroup, Box, Button, useToast } from "@chakra-ui/react";
 import { ChevronLeftIcon } from "@chakra-ui/icons";
 import './newFeedback.css';
-import { useLocation } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { rdxfeedbackactions } from '../../redux/reducers/feedback';
+import * as Yup from "yup";
 import { v4 as uuidv4 } from "uuid";
+import { InputControl, SelectControl, SubmitButton, TextareaControl } from "formik-chakra-ui";
 const NewFeedBack = (props) => {
+
     const dispatch = useDispatch();
-    const location = useLocation();
-    const [form, setFormValues] = useState({
+
+    const toast = useToast();
+
+    const onSubmit = (values, errors) => (e) => {
+        e.preventDefault();
+        var size = Object.keys(errors).length;
+
+        if (values.title !== '' && values.detail !== '' && values.category !== '') {
+            if (!size > 0) {
+                dispatch(rdxfeedbackactions.addFeedback({ feedback: values }));
+                toast({
+                    title: "Feedback created.",
+                    position: "top-right",
+                    status: "success",
+                    duration: 5000,
+                    isClosable: true,
+                })
+            } else {
+                toast({
+                    title: "Error",
+                    position: "top-right",
+                    description: "Inputs must not be empty",
+                    status: "error",
+                    duration: 5000,
+                    isClosable: true,
+                })
+            }
+        } else {
+            toast({
+                title: "Error",
+                position: "top-right",
+                description: "Inputs must not be empty",
+                status: "error",
+                duration: 5000,
+                isClosable: true,
+            })
+        }
+    };
+
+    const initialValues = {
         id: uuidv4(),
         title: "",
-        category: "Feature",
+        category: "",
         detail: "",
         vote: "0",
         status: "Planned",
         comment: [],
+
+    };
+    const validationSchema = Yup.object({
+        title: Yup.string().required(),
+        category: Yup.string().required(),
+        detail: Yup.string().required(),
     });
-    const fromNotifications = location.state;
+
     const icon = () => (
         <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="28" cy="28" r="28" fill="url(#paint0_radial_0_1342)" />
@@ -35,43 +81,10 @@ const NewFeedBack = (props) => {
         </svg>
 
     )
-    const handleChangeTitle = (e) => {
-        setFormValues({ ...form, title: e.target.value });
-
-    }
-
-    const handleChangeDetail = (e) => {
-        setFormValues({ ...form, detail: e.target.value });
-
-    }
-
-    const handleChangeCategory = (e) => {
-        setFormValues({ ...form, category: e.target.value });
-
-    }
-
-    const handleSubmitStore = () => {
-
-        dispatch(rdxfeedbackactions.addFeedback({ feedback: form }));
-
-
-    }
-    function validateInputs(value) {
-        let error
-        if (!value) {
-            error = "Can't be empty"
-        }
-        return error
-    }
 
     return (
         <>
-
             <div className="newFeedback">
-                {
-
-
-                }
                 <div className="goBack">
                     <div className="goBack-link">
                         <ChevronLeftIcon color="#4661E6" />
@@ -87,61 +100,48 @@ const NewFeedBack = (props) => {
                     <h1>Create New Feedback</h1>
                     <br />
                     <Formik
-                        onSubmit={(values, actions) => {
-                            setTimeout(() => {
-                                alert(JSON.stringify(values, null, 2))
-                                actions.setSubmitting(false)
-                            }, 1000)
-                        }}
+                        initialValues={initialValues}
+                        onSubmit={onSubmit}
+                        validationSchema={validationSchema}
                     >
-                        {(props) => (
-                            <Form>
-                                <FormControl id="title">
-                                    <FormLabel fontWeight="bold" margin="0" fontSize="14px" htmlFor="title">Feedback Title</FormLabel>
-                                    <FormLabel fontSize="14px" htmlFor="subtitle" color="#647196">Add a short, descriptive headline</FormLabel>
-
-                                    <Input onChange={handleChangeTitle} className="input-form" width="458px" variant="filled" backgroundColor="#F7F8FD" id="title" />
-                                </FormControl>
-                                <FormControl id="country">
-                                    <FormLabel fontSize="14px" margin="0" fontWeight="bold" htmlFor="name">Category</FormLabel>
-                                    <FormLabel fontSize="14px" htmlFor="name" color="#647196">Choose a category for your feedback</FormLabel>
-                                    <Select onChange={handleChangeCategory} width="458px" backgroundColor="#F7F8FD">
-                                        <option>Feature</option>
-                                        <option>UI</option>
-                                        <option>UX</option>
-                                        <option>Enhancement</option>
-                                        <option>Bug</option>
-                                    </Select>
-                                </FormControl>
-                                <FormControl className="form-control" >
-                                    <FormLabel fontSize="14px" margin="0" fontWeight="bold" htmlFor="name">Feedback Detail</FormLabel>
-                                    <FormLabel fontSize="14px" htmlFor="name" color="#647196">Include any specific comments on what should be improved, added, etc.</FormLabel>
-                                    <Textarea onChange={handleChangeDetail} width="458px" id="name" className="input-form" width="458px" variant="filled" backgroundColor="#F7F8FD" id="name" />
-
-                                </FormControl>
-
+                        {({ handleSubmit, values, errors }) => (
+                            <Box
+                                as="form"
+                                onSubmit={onSubmit(values, errors)}
+                            >
+                                <FormLabel fontWeight="bold" margin="0" fontSize="14px" htmlFor="title">Feedback Title</FormLabel>
+                                <FormLabel fontSize="14px" htmlFor="title" color="#647196">Add a short, descriptive headline</FormLabel>
+                                <InputControl name="title" className="input" />
+                                <br />
+                                <FormLabel fontSize="14px" margin="0" fontWeight="bold" htmlFor="category">Category</FormLabel>
+                                <FormLabel fontSize="14px" htmlFor="category" color="#647196">Choose a category for your feedback</FormLabel>
+                                <SelectControl
+                                    name="category"
+                                    selectProps={{ placeholder: "Select option" }}
+                                >
+                                    <option value="Feature">Feature</option>
+                                    <option value="UI">UI</option>
+                                    <option value="UX">UX</option>
+                                    <option value="Enhancement">Enhancement</option>
+                                    <option value="Bug">Bug</option>
+                                </SelectControl>
+                                <br />
+                                <FormLabel fontSize="14px" margin="0" fontWeight="bold" htmlFor="detail">Feedback Detail</FormLabel>
+                                <FormLabel fontSize="14px" htmlFor="detail" color="#647196">Include any specific comments on what should be improved, added, etc.</FormLabel>
+                                <TextareaControl name="detail" className="input" />
+                                <br />
                                 <div className="button-group">
-                                    <Link to="/">
-                                        <button
-                                            className="button-gray"
-                                        >
-                                            Cancel
-                                        </button>
-                                    </Link>
-                                    <Link to="/">
-                                        <button
-                                            className="button-purplelarge"
-                                            onClick={handleSubmitStore}
-                                        >
-                                            Add Feedback
-                                        </button>
-                                    </Link>
+                                    <ButtonGroup>
+                                        <Link to="/">
+                                            <Button className="button-cancel" backgroundColor="#3A4374">Cancel</Button>
+                                        </Link>
+                                        <SubmitButton className="button-purplelarge" backgroundColor="#AD1FEA">Add Feedback</SubmitButton>
+                                    </ButtonGroup>
                                 </div>
-                            </Form>
+                            </Box>
                         )}
                     </Formik>
                 </div>
-
             </div>
         </>
     )
