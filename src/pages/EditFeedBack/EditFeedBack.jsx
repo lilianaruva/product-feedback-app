@@ -1,11 +1,74 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Formik, Form, Field } from "formik";
-import { FormControl, FormLabel, FormErrorMessage, Input, Select, Textarea } from "@chakra-ui/react";
+import { Formik } from "formik";
+import { FormLabel, ButtonGroup, Box, Button, useToast } from "@chakra-ui/react";
 import { ChevronLeftIcon } from "@chakra-ui/icons";
-import './editfeedback.css'
+import { useDispatch, useSelector } from 'react-redux';
+import { rdxfeedbackactions } from '../../redux/reducers/feedback';
+import './editfeedback.css';
+import * as Yup from "yup";
+import { InputControl, SelectControl, SubmitButton, TextareaControl } from "formik-chakra-ui";
+
 
 const EditFeedBack = () => {
+    const feedback = useSelector(state => state.feedback.selectedFeedback);
+
+    const dispatch = useDispatch();
+
+    const toast = useToast();
+
+    const onSubmit = (values, errors) => (e) => {
+        e.preventDefault();
+        var size = Object.keys(errors).length;
+
+        if (values.title !== '' && values.detail !== '' && values.category !== '') {
+            if (!size > 0) {
+                dispatch(rdxfeedbackactions.addFeedback({ feedback: values }));
+                toast({
+                    title: "Feedback created.",
+                    position: "top-right",
+                    status: "success",
+                    duration: 5000,
+                    isClosable: true,
+                })
+            } else {
+                toast({
+                    title: "Error",
+                    position: "top-right",
+                    description: "Inputs must not be empty",
+                    status: "error",
+                    duration: 5000,
+                    isClosable: true,
+                })
+            }
+        } else {
+            toast({
+                title: "Error",
+                position: "top-right",
+                description: "Inputs must not be empty",
+                status: "error",
+                duration: 5000,
+                isClosable: true,
+            })
+        }
+    };
+
+    const initialValues = {
+        id: feedback.id,
+        title: feedback.title,
+        category: feedback.category,
+        detail: feedback.detail,
+        vote: feedback.vote,
+        status: feedback.status,
+        comment: feedback.comment,
+    };
+    const validationSchema = Yup.object({
+        title: Yup.string().required(),
+        category: Yup.string().required(),
+        detail: Yup.string().required(),
+    });
+
+
     const icon = () => (
         <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="28" cy="28" r="28" fill="url(#paint0_radial_0_1239)" />
@@ -19,14 +82,6 @@ const EditFeedBack = () => {
             </defs>
         </svg>
     )
-
-    function validateInputs(value) {
-        let error
-        if (!value) {
-            error = "Name is required"
-        }
-        return error
-    }
 
     return (
         <>
@@ -45,82 +100,66 @@ const EditFeedBack = () => {
 
 
                 <div className="feedback-form">
-                    <h1>Editing '...'</h1>
+                    <h1>Editing '{feedback.title}'</h1>
                     <br />
                     <Formik
-                        onSubmit={(values, actions) => {
-                            setTimeout(() => {
-                                alert(JSON.stringify(values, null, 2))
-                                actions.setSubmitting(false)
-                            }, 1000)
-                        }}
+                        initialValues={initialValues}
+                        onSubmit={onSubmit}
+                        validationSchema={validationSchema}
                     >
-                        {(props) => (
-                            <Form>
-                                <Field name="name" validate={validateInputs}>
-                                    {({ field, form }) => (
-                                        <FormControl className="form-control" isInvalid={form.errors.name && form.touched.name}>
-                                            <FormLabel fontWeight="bold" margin="0" fontSize="14px" htmlFor="name">Feedback Title</FormLabel>
-                                            <FormLabel fontSize="14px" htmlFor="name" color="#647196">Add a short, descriptive headline</FormLabel>
-                                            <Input className="input-form" width="458px" {...field} variant="filled" backgroundColor="#F7F8FD" id="name" />
-                                            <FormErrorMessage>{form.errors.name}</FormErrorMessage>
-                                        </FormControl>
-                                    )}
-                                </Field>
-                                <FormControl id="country">
-                                    <FormLabel fontSize="14px" margin="0" fontWeight="bold" htmlFor="name">Category</FormLabel>
-                                    <FormLabel fontSize="14px" htmlFor="name" color="#647196">Choose a category for your feedback</FormLabel>
-                                    <Select width="458px" backgroundColor="#F7F8FD" marginBottom="1rem">
-                                        <option>Feature</option>
-                                        <option>UI</option>
-                                        <option>UX</option>
-                                    </Select>
-                                </FormControl>
-                                <FormControl id="updateStatus">
-                                    <FormLabel fontSize="14px" margin="0" fontWeight="bold" htmlFor="name">Update Status</FormLabel>
-                                    <FormLabel fontSize="14px" htmlFor="name" color="#647196">Change feature state</FormLabel>
-                                    <Select width="458px" backgroundColor="#F7F8FD">
-                                        <option>Planned</option>
-                                        <option>UI</option>
-                                        <option>UX</option>
-                                    </Select>
-                                </FormControl>
-                                <Field name="name" validate={validateInputs}>
-                                    {({ field, form }) => (
-                                        <FormControl className="form-control" isInvalid={form.errors.name && form.touched.name}>
-                                            <FormLabel fontSize="14px" margin="0" fontWeight="bold" htmlFor="name">Feedback Detail</FormLabel>
-                                            <FormLabel fontSize="14px" htmlFor="name" color="#647196">Include any specific comments on what should be improved, added, etc.</FormLabel>
-                                            <Textarea width="458px" {...field} id="name" className="input-form" width="458px" {...field} variant="filled" backgroundColor="#F7F8FD" id="name" />
-                                            <FormErrorMessage>{form.errors.name}</FormErrorMessage>
-                                        </FormControl>
-                                    )}
-                                </Field>
+                        {({ handleSubmit, values, errors }) => (
+                            <Box
+                                as="form"
+                                onSubmit={onSubmit(values, errors)}
+                            >
+                                <FormLabel fontWeight="bold" margin="0" fontSize="14px" htmlFor="title">Feedback Title</FormLabel>
+                                <FormLabel fontSize="14px" htmlFor="title" color="#647196">Add a short, descriptive headline</FormLabel>
+                                <InputControl name="title" className="input" />
+                                <br />
+                                <FormLabel fontSize="14px" margin="0" fontWeight="bold" htmlFor="category">Category</FormLabel>
+                                <FormLabel fontSize="14px" htmlFor="category" color="#647196">Choose a category for your feedback</FormLabel>
+                                <SelectControl
+                                    name="category"
+                                    selectProps={{ placeholder: "Select option" }}
+                                >
+                                    <option value="Feature">Feature</option>
+                                    <option value="UI">UI</option>
+                                    <option value="UX">UX</option>
+                                    <option value="Enhancement">Enhancement</option>
+                                    <option value="Bug">Bug</option>
+                                </SelectControl>
+                                <br />
+                                <FormLabel fontSize="14px" margin="0" fontWeight="bold" htmlFor="status">Update Status</FormLabel>
+                                <FormLabel fontSize="14px" htmlFor="status" color="#647196">Change feature state</FormLabel>
+                                <SelectControl
+                                    name="status"
+                                    selectProps={{ placeholder: "Select option" }}
+                                >
+                                    <option value="Planned">Feature</option>
+                                    <option value="In-Progress">In-Progress</option>
+                                    <option value="Live">Live</option>
+                                </SelectControl>
+                                <br />
+                                <FormLabel fontSize="14px" margin="0" fontWeight="bold" htmlFor="detail">Feedback Detail</FormLabel>
+                                <FormLabel fontSize="14px" htmlFor="detail" color="#647196">Include any specific comments on what should be improved, added, etc.</FormLabel>
+                                <TextareaControl name="detail" className="input" />
+                                <br />
                                 <div className="button-group">
-                                    <div className="button-left">
-                                        <Link to="/feedback-detail">
-                                            <button className="button-cancel">Delete</button>
-                                        </Link>
-                                    </div>
-                                    <div className="button-right">
-                                        <Link to="/feedback-detail">
-                                            <button
-                                                className="button-gray"
-                                                
-                                            >
-                                                Cancel
-                                            </button>
-                                        </Link>
-                                        <Link to="/feedback-detail">
-                                            <button
-                                                className="button-purplelarge"
-                                                
-                                            >
-                                                Add Feedback
-                                            </button>
-                                        </Link>
-                                    </div>
+                                    
+                                        <div className="button-left">
+                                            <Link to="/feedback-detail">
+                                                <button className="button-delete">Delete</button>
+                                            </Link>
+                                        </div>
+                                        <div className="button-right">
+                                            <Link to="/">
+                                                <Button className="button-cancel" backgroundColor="#3A4374">Cancel</Button>
+                                            </Link>
+                                            <SubmitButton className="button-purplelarge" backgroundColor="#AD1FEA">Add Feedback</SubmitButton>
+                                        </div>
+                                    
                                 </div>
-                            </Form>
+                            </Box>
                         )}
                     </Formik>
                 </div>

@@ -4,12 +4,19 @@ import CommentContainer from "./components/commentContainer";
 import AddComment from "./components/addComment";
 import { ChevronLeftIcon } from "@chakra-ui/icons";
 import { Link } from "react-router-dom";
-
+import { rdxfeedbackactions } from "../../redux/reducers/feedback";
 import './styles/feedbackDetails.css'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 
 const FeedBackDetails = () => {
+    const dispatch = useDispatch();
     const feedback = useSelector(state => state.feedback.selectedFeedback);
+
+    const onClickSelecSuggestion = () => {
+        console.log(rdxfeedbackactions);
+        dispatch(rdxfeedbackactions.changeSelectedFeedback({ selectedFeedback: feedback }));
+        console.log(feedback);
+    }
 
     return (
         <>
@@ -25,7 +32,7 @@ const FeedBackDetails = () => {
                             </div>
                         </div>
                         <Link to="/edit-feedback">
-                            <button className="button-blue">Edit Feedback</button>
+                            <button onClick={onClickSelecSuggestion} className="button-blue">Edit Feedback</button>
                         </Link>
                     </div>
                     <SuggestionsCard title={feedback.title} detail={feedback.detail} category={feedback.category} vote={feedback.vote} comment={feedback.comment} />

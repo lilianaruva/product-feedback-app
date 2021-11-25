@@ -80,36 +80,40 @@
     font-size: 14px;
 }
 
-.button-gray:hover{
+.button-gray:hover {
     background-color: #656EA3;
 }
 
-.button-purplelarge:hover{
+.button-purplelarge:hover {
     background-color: #C75AF6;
 }
 
-.button-cancel{
-    height: 44px;
+.button-delete {
+    height: 40px;
     width: 93px;
     background-color: #D73737;
     border-radius: 10px;
     color: #F2F4FE;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 16px;
 }
 
-.button-cancel:hover{
+.button-delete:hover {
     background-color: #E98888;
 
 }
 
 .button-group {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
 }
 
-.button-left{
-    flex-grow: 3;
+.button-left {
+    flex-grow: 2;
+}
+
+.button-right {
+    margin-left: 1rem;
 }
 
 @media screen and (min-width:768px) {
@@ -146,4 +150,12 @@
         top: 6%;
         z-index: 2;
     }
+}
+
+.css-1nhb0a5{
+    background-color: #AD1FEA !important;
+}
+
+.css-1iej3t9{
+    background-color: #3A4374 !important;
 }
