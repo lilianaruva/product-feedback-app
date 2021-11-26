@@ -13,9 +13,7 @@ const FeedBackDetails = () => {
     const feedback = useSelector(state => state.feedback.selectedFeedback);
 
     const onClickSelecSuggestion = () => {
-        console.log(rdxfeedbackactions);
         dispatch(rdxfeedbackactions.changeSelectedFeedback({ selectedFeedback: feedback }));
-        console.log(feedback);
     }
 
     return (
@@ -35,7 +33,7 @@ const FeedBackDetails = () => {
                             <button onClick={onClickSelecSuggestion} className="button-blue">Edit Feedback</button>
                         </Link>
                     </div>
-                    <SuggestionsCard title={feedback.title} detail={feedback.detail} category={feedback.category} vote={feedback.vote} comment={feedback.comment} />
+                    <SuggestionsCard id={feedback.id}  title={feedback.title} status={feedback.status} detail={feedback.detail} category={feedback.category} vote={feedback.vote} comment={feedback.comment} />
                     <CommentContainer />
                     <AddComment />
                 </div>

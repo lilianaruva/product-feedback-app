@@ -1,7 +1,7 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  selectedFeedback:{},
+  selectedFeedback: {},
   feedbacks: [
     {
       id: 1,
@@ -12,16 +12,16 @@ const initialState = {
       vote: "65",
       comment: [
         {
-          user:"Emma",
-          username:"@ema-stuff",
-          comment:"it's fine"
+          user: "Emma",
+          username: "@ema-stuff",
+          comment: "it's fine",
         },
         {
-          user:"Lily",
-          username:"@lily_ruva",
-          comment:"idk"
-        }
-      ]
+          user: "Lily",
+          username: "@lily_ruva",
+          comment: "idk",
+        },
+      ],
     },
     {
       id: 2,
@@ -32,29 +32,29 @@ const initialState = {
       vote: "112",
       comment: [
         {
-          user:"Emma",
-          username:"@ema-stuff",
-          comment:"it's fine"
+          user: "Emma",
+          username: "@ema-stuff",
+          comment: "it's fine",
         },
         {
-          user:"Lily",
-          username:"@lily_ruva",
-          comment:"idk"
+          user: "Lily",
+          username: "@lily_ruva",
+          comment: "idk",
         },
         {
-          user:"Emma",
-          username:"@ema-stuff",
-          comment:"it's fine"
+          user: "Emma",
+          username: "@ema-stuff",
+          comment: "it's fine",
         },
         {
-          user:"Lily",
-          username:"@lily_ruva",
-          comment:"idk"
-        }
-      ]
+          user: "Lily",
+          username: "@lily_ruva",
+          comment: "idk",
+        },
+      ],
     },
     {
-      id:3,
+      id: 3,
       title: "Allow image/video upload to feedback",
       detail: "Images and screencasts can enhance comments on solutions.",
       category: "UI",
@@ -62,36 +62,36 @@ const initialState = {
       vote: "51",
       comment: [
         {
-          user:"Emma",
-          username:"@ema-stuff",
-          comment:"it's fine"
+          user: "Emma",
+          username: "@ema-stuff",
+          comment: "it's fine",
         },
         {
-          user:"Lily",
-          username:"@lily_ruva",
-          comment:"idk"
+          user: "Lily",
+          username: "@lily_ruva",
+          comment: "idk",
         },
         {
-          user:"Emma",
-          username:"@ema-stuff",
-          comment:"it's fine"
+          user: "Emma",
+          username: "@ema-stuff",
+          comment: "it's fine",
         },
         {
-          user:"Lily",
-          username:"@lily_ruva",
-          comment:"idk"
+          user: "Lily",
+          username: "@lily_ruva",
+          comment: "idk",
         },
         {
-          user:"Emma",
-          username:"@ema-stuff",
-          comment:"it's fine"
+          user: "Emma",
+          username: "@ema-stuff",
+          comment: "it's fine",
         },
         {
-          user:"Lily",
-          username:"@lily_ruva",
-          comment:"idk"
-        }
-      ]
+          user: "Lily",
+          username: "@lily_ruva",
+          comment: "idk",
+        },
+      ],
     },
     {
       id: 4,
@@ -102,16 +102,16 @@ const initialState = {
       vote: "3",
       comment: [
         {
-          user:"Emma",
-          username:"@ema-stuff",
-          comment:"it's fine"
+          user: "Emma",
+          username: "@ema-stuff",
+          comment: "it's fine",
         },
         {
-          user:"Lily",
-          username:"@lily_ruva",
-          comment:"idk"
-        }
-      ]
+          user: "Lily",
+          username: "@lily_ruva",
+          comment: "idk",
+        },
+      ],
     },
     {
       id: 5,
@@ -123,11 +123,11 @@ const initialState = {
       vote: "99",
       comment: [
         {
-          user:"Emma",
-          username:"@ema-stuff",
-          comment:"it's fine"
+          user: "Emma",
+          username: "@ema-stuff",
+          comment: "it's fine",
         },
-      ]
+      ],
     },
     {
       id: 6,
@@ -138,55 +138,68 @@ const initialState = {
       vote: "42",
       comment: [
         {
-          user:"Emma",
-          username:"@ema-stuff",
-          comment:"it's fine"
+          user: "Emma",
+          username: "@ema-stuff",
+          comment: "it's fine",
         },
         {
-          user:"Lily",
-          username:"@lily_ruva",
-          comment:"idk"
+          user: "Lily",
+          username: "@lily_ruva",
+          comment: "idk",
         },
         {
-          user:"Emma",
-          username:"@ema-stuff",
-          comment:"it's fine"
+          user: "Emma",
+          username: "@ema-stuff",
+          comment: "it's fine",
         },
-      ]
-    }
+      ],
+    },
   ],
-}
+};
 
 export const counterSlice = createSlice({
-  name: 'counter',
+  name: "counter",
   initialState,
   reducers: {
     changeSelectedFeedback: (state, action) => {
       state.selectedFeedback = action.payload.selectedFeedback;
     },
-    changeData : (state,action) =>{
-        state.feedbacks = action.payload.feedbacks
+    changeData: (state, action) => {
+      state.feedbacks = action.payload.feedbacks;
     },
-    addFeedback : (state,action) =>{
-        state.feedbacks.push(action.payload.feedback)
+    addFeedback: (state, action) => {
+      state.feedbacks.push(action.payload.feedback);
+    },
+    updateFeedback: (state, action) => {
+      let updatedFeedback = JSON.parse(
+        JSON.stringify(
+          state.feedbacks.map((feedback) => {
+            if (feedback.id === action.payload.feedback.id) {
+              return action.payload.feedback;
+            }
+            return feedback;
+          })
+        )
+      );
+      state.feedbacks = updatedFeedback;
     },
     increment: (state) => {
       // Redux Toolkit allows us to write "mutating" logic in reducers. It
       // doesn't actually mutate the state because it uses the Immer library,
       // which detects changes to a "draft state" and produces a brand new
       // immutable state based off those changes
-      state.value += 1
+      state.value += 1;
     },
     decrement: (state) => {
-      state.value -= 1
+      state.value -= 1;
     },
     incrementByAmount: (state, action) => {
-      state.value += action.payload
+      state.value += action.payload;
     },
   },
-})
+});
 
 // Action creators are generated for each case reducer function
-export const rdxfeedbackactions = counterSlice.actions
+export const rdxfeedbackactions = counterSlice.actions;
 
-export default counterSlice.reducer
+export default counterSlice.reducer;

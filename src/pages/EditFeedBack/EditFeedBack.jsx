@@ -20,12 +20,13 @@ const EditFeedBack = () => {
     const onSubmit = (values, errors) => (e) => {
         e.preventDefault();
         var size = Object.keys(errors).length;
-
         if (values.title !== '' && values.detail !== '' && values.category !== '') {
             if (!size > 0) {
-                dispatch(rdxfeedbackactions.addFeedback({ feedback: values }));
+                let feedbackCopy = JSON.parse(JSON.stringify(feedback));
+                Object.assign(feedbackCopy, values);
+                dispatch(rdxfeedbackactions.updateFeedback({ feedback: feedbackCopy }));
                 toast({
-                    title: "Feedback created.",
+                    title: "Feedback was updated succesfully",
                     position: "top-right",
                     status: "success",
                     duration: 5000,
@@ -145,19 +146,19 @@ const EditFeedBack = () => {
                                 <TextareaControl name="detail" className="input" />
                                 <br />
                                 <div className="button-group">
-                                    
-                                        <div className="button-left">
-                                            <Link to="/feedback-detail">
-                                                <button className="button-delete">Delete</button>
-                                            </Link>
-                                        </div>
-                                        <div className="button-right">
-                                            <Link to="/">
-                                                <Button className="button-cancel" backgroundColor="#3A4374">Cancel</Button>
-                                            </Link>
-                                            <SubmitButton className="button-purplelarge" backgroundColor="#AD1FEA">Add Feedback</SubmitButton>
-                                        </div>
-                                    
+
+                                    <div className="button-left">
+                                        <Link to="/feedback-detail">
+                                            <button className="button-delete">Delete</button>
+                                        </Link>
+                                    </div>
+                                    <div className="button-right">
+                                        <Link to="/">
+                                            <Button className="button-cancel" backgroundColor="#3A4374">Cancel</Button>
+                                        </Link>
+                                        <SubmitButton className="button-purplelarge" backgroundColor="#AD1FEA">Add Feedback</SubmitButton>
+                                    </div>
+
                                 </div>
                             </Box>
                         )}

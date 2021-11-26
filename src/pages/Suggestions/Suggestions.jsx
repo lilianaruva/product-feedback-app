@@ -121,10 +121,10 @@ const Suggestion = () => {
                     {
                         window.screen.width >= 376 ?
                             feedbacks.map(fb =>
-                                <SuggestionsCard key={fb.id + fb.detail + fb.title} title={fb.title} detail={fb.detail} category={fb.category} vote={fb.vote} comment={fb.comment?.length ?? []} link="true" />
+                                <SuggestionsCard key={fb.id} id={fb.id} title={fb.title} detail={fb.detail} category={fb.category} vote={fb.vote} comment={fb?.comment.length > 0 ? fb.comment : []} status={fb.status} link="true" />
                             ) :
                             feedbacks.map(fb =>
-                                <SuggestionCardMobile key={fb.id + fb.detail + fb.title} title={fb.title} detail={fb.detail} category={fb.category} vote={fb.vote} comment={fb.comment?.length ?? []} link="true" />
+                                <SuggestionCardMobile key={fb.id} id={fb.id} title={fb.title} detail={fb.detail} category={fb.category} vote={fb.vote} comment={fb?.comment.length > 0 ? fb.comment : []} status={fb.status} link="true" />
                             )
                     }
                 </div>

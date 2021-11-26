@@ -5,7 +5,7 @@ import { ChevronUpIcon } from "@chakra-ui/icons";
 import { Link } from "react-router-dom";
 import { useDispatch } from 'react-redux'
 import { rdxfeedbackactions } from '../../../redux/reducers/feedback';
-const SuggestionsCard = ({ title, detail, category, vote, comment, link, status, id }) => {
+const SuggestionsCard = ({ id, title, detail, category, vote, comment, link, status }) => {
 
     const dispatch = useDispatch();
     const icon = () => (
@@ -15,8 +15,7 @@ const SuggestionsCard = ({ title, detail, category, vote, comment, link, status,
     )
 
     const onClickSelecSuggestion = () => {
-        console.log(rdxfeedbackactions);
-        const selectedFeedback = { title, detail, category, vote, comment, status, id }
+        const selectedFeedback = { id, title, detail, category, vote, comment, status }
         dispatch(rdxfeedbackactions.changeSelectedFeedback({ selectedFeedback: selectedFeedback }));
     }
     return (
@@ -40,7 +39,7 @@ const SuggestionsCard = ({ title, detail, category, vote, comment, link, status,
                 </div>
                 <div className="sC-comments">
                     {icon()}
-                    <h2>{comment}</h2>
+                    <h2>{comment.length}</h2>
                 </div>
             </div>
         </>
