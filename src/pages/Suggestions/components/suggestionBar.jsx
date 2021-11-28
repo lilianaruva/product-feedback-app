@@ -28,7 +28,7 @@ const SuggestionsCard = (props) => {
         <>
             <div className="suggestionBar-container">
                 {
-                    window.innerWidth <= 375 ?
+                    window.innerWidth >= 375 ?
                         <div className="suggestion-icon">
                             {icon()}
                             <h1 className="suggestion-title">{props.suggestions} Suggestions</h1>
