@@ -26,7 +26,7 @@ const Roadmap = () => {
                                 planned?.map(f => <CardRoadmap key={uuidv4()} title={f.title} description={f.detail} category={f.category} status={f.status} color="#F49F85" comment={f.comment.length} vote={f.vote.length} />)
                             }
                         </div>
-                        <div className="columncard-container">
+                        <div className="columncard-container CC-middle">
                             <h1 className="title">Live ({live.length})</h1>
                             <h2 className="subtitle">Released features</h2>
                             {

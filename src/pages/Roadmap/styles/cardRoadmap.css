@@ -1,8 +1,8 @@
 .card-container{
     max-width: 350px;
     min-width: 223px;
-    height: 280px;
-    min-height: 251px;
+    height: 290px;
+    min-height: 255px;
     border-radius: 5px;
     color: #647196;
     background-color: white;
@@ -48,7 +48,7 @@
 }
 
 .card-content{
-    margin: 1.5rem;
+    margin: 1rem;
 }
 
 .card-bottom{
