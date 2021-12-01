@@ -48,6 +48,14 @@
     min-width: 223px;
 }
 
+.columncard-c-mobile {
+    display: flex;
+    flex-direction: column;
+    background-color: #F7F8FD;
+    max-width: 100%;
+
+}
+
 .CC-middle {
     margin-left: 1rem;
     margin-right: 1rem;
@@ -61,4 +69,28 @@
 
 .subtitle {
     font-size: 18px;
+}
+/*
+.css-1ltezim[aria-selected=true],
+.css-1ltezim[data-selected] {
+    color: #F49F85 !important;
+    border-color: currentColor;
+}
+*/
+@media screen and (max-width:376px) {
+    .subtitle {
+        font-size: 13px;
+    }
+
+    .roadmap-content {
+        margin: 0;
+    }
+
+    .roadmap-columns {
+        margin: 1rem;
+    }
+
+    .card-container {
+        width: 327px;
+    }
 }
