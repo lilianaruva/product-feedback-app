@@ -93,4 +93,14 @@
     .card-container {
         width: 327px;
     }
+
+    .nav-container{
+        border-radius: 0 0 10px 10px;
+    }
+
+    .roadmap{
+        display: flex;
+        flex-direction: column;
+        margin-top: 0;
+    }
 }

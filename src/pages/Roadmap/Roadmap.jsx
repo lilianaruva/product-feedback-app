@@ -45,7 +45,7 @@ const Roadmap = () => {
                                 </div>
                             </div>
                             :
-                            <Tabs>
+                            <Tabs marginTop= "1rem">
                                 <TabList>
                                     <Tab>Planned</Tab>
                                     <Tab>Live</Tab>
